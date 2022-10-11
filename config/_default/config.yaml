@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Ken HONDA WebPage
-baseurl: "https://example.com/"
+baseurl: "https://knhnd.github.io/kenpage/"
 copyright: "© {year} Ken Honda"
 
 # LANGUAGE
