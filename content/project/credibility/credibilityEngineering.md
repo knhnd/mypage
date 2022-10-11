@@ -1,11 +1,11 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Credibility Engineering Project"
+title: "University UX Project"
 subtitle: ""
-summary: ""
+summary: "大学のUX向上を目的としたシステム開発プロジェクト"
 authors: [Ken HONDA]
-tags: [Credibility Engineering]
+tags: [UX Design, University DX]
 categories: [Information Science]
 date: 2017-04-01T16:56:40+09:00
 lastmod: 2021-09-02T16:56:40+09:00
@@ -24,7 +24,7 @@ links:
   - icon: github
     icon_pack: fab
     name: Join
-    url: https://github.com/Credibility-Engineering-Project
+    url: https://github.com/knhnd/proj_university-ux
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -33,5 +33,3 @@ links:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-
-Credibility Engineering Project is about a credibility assessment technology. The credibility assessment technology is a techniques for fact checking.

@@ -62,6 +62,6 @@ highlight_name: true
 
 Ken HONDA was born in Tokyo, Japan. He is a researcher of Media Studies, Media Informatics, Data Engineering in Komazawa University. His research interests include Information System Design, Database Systems and Social Computing.
 
-博士 ( メディア学 )．専門はメディア学，メディア情報論．Web やデータベース技術を用いて情報システムをデザインし社会課題を解決する方法について研究しています．
+博士(メディア学)．専門はメディア学，メディア情報論．Web やデータベース技術を用いて情報システム・アプリケーションをデザインし，社会課題を解決する方法について研究しています．
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

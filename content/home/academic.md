@@ -22,6 +22,27 @@ date_format: 2006-01-01
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: 正会員
+    company: 社会情報学会 (SSI)
+    company_url: "http://www.ssi.or.jp/"
+    location: Tokyo
+    date_start: "2022-06-01"
+    date_end: ""
+
+  - title: FIT2022 プログラム委員
+    company: 第21回情報科学技術フォーラム FIT2022
+    company_url: "https://www.ipsj.or.jp/event/fit/fit2022/index.html"
+    location: Tokyo
+    date_start: "2021-09-01"
+    date_end: "2022-09-15"
+
+  - title: FIT2021 プログラム委員
+    company: 第20回情報科学技術フォーラム FIT2021
+    company_url: "https://www.ipsj.or.jp/event/fit/fit2021/"
+    location: Tokyo
+    date_start: "2020-09-01"
+    date_end: "2021-08-27"
+
   - title: 幹事補佐
     company: 電子情報通信学会 (IEICE) データ工学研究会 (DE)
     company_url: "https://www.ieice.org/jpn_r/index.html"
@@ -37,15 +58,15 @@ experience:
     date_end: ""
 
   - title: 正会員
-    company: 情報処理学会 (IPSJ)
-    company_url: "https://www.ipsj.or.jp/"
+    company: 日本データベース学会 (DBSJ)
+    company_url: "https://dbsj.org/"
     location: Tokyo
     date_start: "2015-04-01"
     date_end: ""
 
   - title: 正会員
-    company: 日本データベース学会 (DBSJ)
-    company_url: "https://dbsj.org/"
+    company: 情報処理学会 (IPSJ)
+    company_url: "https://www.ipsj.or.jp/"
     location: Tokyo
     date_start: "2015-04-01"
     date_end: ""
