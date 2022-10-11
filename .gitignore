@@ -1,3 +1,4 @@
+
 .DS_Store
 
 # IDEs
@@ -5,5 +6,6 @@
 
 # Hugo
 /resources/
+public/
 jsconfig.json
 node_modules/
