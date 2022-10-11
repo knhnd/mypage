@@ -29,14 +29,14 @@ experience:
     date_start: "2022-06-01"
     date_end: ""
 
-  - title: FIT2022 プログラム委員
+  - title: FIT2022 研究会担当委員
     company: 第21回情報科学技術フォーラム FIT2022
     company_url: "https://www.ipsj.or.jp/event/fit/fit2022/index.html"
     location: Tokyo
     date_start: "2021-09-01"
     date_end: "2022-09-15"
 
-  - title: FIT2021 プログラム委員
+  - title: FIT2021 研究会担当委員
     company: 第20回情報科学技術フォーラム FIT2021
     company_url: "https://www.ipsj.or.jp/event/fit/fit2021/"
     location: Tokyo
