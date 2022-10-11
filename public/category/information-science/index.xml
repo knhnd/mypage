@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Information Science | Ken HONDA WebPage</title>
+    <link>https://example.com/category/information-science/</link>
+      <atom:link href="https://example.com/category/information-science/index.xml" rel="self" type="application/rss+xml" />
+    <description>Information Science</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Ken Honda</copyright><lastBuildDate>Sat, 01 Apr 2017 16:56:40 +0900</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu50443a030280263dcbd74f8089a9848a_334791_512x512_fill_lanczos_center_3.png</url>
+      <title>Information Science</title>
+      <link>https://example.com/category/information-science/</link>
+    </image>
+    
+    <item>
+      <title>University UX Project</title>
+      <link>https://example.com/project/credibility/credibilityengineering/</link>
+      <pubDate>Sat, 01 Apr 2017 16:56:40 +0900</pubDate>
+      <guid>https://example.com/project/credibility/credibilityengineering/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

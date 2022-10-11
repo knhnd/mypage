@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Credibility Engineering | Ken HONDA WebPage</title>
+    <link>https://example.com/tag/credibility-engineering/</link>
+      <atom:link href="https://example.com/tag/credibility-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <description>Credibility Engineering</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Ken Honda</copyright><lastBuildDate>Sat, 01 Apr 2017 16:56:40 +0900</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu50443a030280263dcbd74f8089a9848a_334791_512x512_fill_lanczos_center_3.png</url>
+      <title>Credibility Engineering</title>
+      <link>https://example.com/tag/credibility-engineering/</link>
+    </image>
+    
+    <item>
+      <title>Credibility Engineering Project</title>
+      <link>https://example.com/project/credibility/credibilityengineering/</link>
+      <pubDate>Sat, 01 Apr 2017 16:56:40 +0900</pubDate>
+      <guid>https://example.com/project/credibility/credibilityengineering/</guid>
+      <description>&lt;p&gt;Credibility Engineering Project is about a credibility assessment technology. The credibility assessment technology is a techniques for fact checking.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

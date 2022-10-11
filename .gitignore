@@ -1,9 +1,9 @@
+.DS_Store
+
 # IDEs
 .idea/
 
 # Hugo
 /resources/
-public/
 jsconfig.json
 node_modules/
-.DS_Store
