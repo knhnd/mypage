@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Ken HONDA WebPage
-baseurl: ""
+baseurl: "https://kenpage.netlify.app/"
 copyright: "© {year} Ken Honda"
 
 # LANGUAGE
