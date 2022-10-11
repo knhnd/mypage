@@ -21,7 +21,7 @@ URL :
 
 HUGO はデフォルトで様々なテーマが用意されている．  
 [themes.gohugo.io](https://themes.gohugo.io/) ですべての公式テーマを探すことができる．  
-今回は研究者向けのポートフォリオ作成に適した [Academic](https://themes.gohugo.io/themes/hugo-academic/) というテーマを採用する．
+今回は研究者向けのポートフォリオ作成に適した [Academic](https://themes.gohugo.io/themes/starter-hugo-academic/) というテーマを採用する．
 
 Academic を利用したプロジェクトの作成は Academic 公式の git をクローンして編集する．
 
