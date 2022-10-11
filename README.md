@@ -1,7 +1,8 @@
 # Ken Honda Web Site
 
 This is my portfolio web site for research, work and some activities.  
-URL :
+URL : https://kenpage.netlify.app/
+Netlify MyPage : https://app.netlify.com/teams/knhnd/overview
 
 ## HUGO
 
