@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Ken HONDA WebPage
-baseurl: "https://knhnd.github.io/kenpage/"
+baseurl: ""
 copyright: "© {year} Ken Honda"
 
 # LANGUAGE
@@ -57,3 +57,6 @@ related:
       weight: 100
     - name: categories
       weight: 70
+
+# minify
+disableJSON: true
