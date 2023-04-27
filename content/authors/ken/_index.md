@@ -1,7 +1,7 @@
 ---
 title: Ken HONDA
 superuser: true
-role: Ph.D. (Media Studies) / Full-time Assistant # Role/position/tagline
+role: Ph.D.(Media Studies) / Full-time Assistant # Role/position/tagline
 
 # Organizations/Affiliations to show in About widget
 organizations:
