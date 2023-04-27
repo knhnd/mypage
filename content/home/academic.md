@@ -22,6 +22,20 @@ date_format: 2006-01-01
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+- title: 幹事
+    company: 電子情報通信学会データ工学研究会(DE)
+    company_url: "https://ken.ieice.org/ken/program/index.php?tgid=IEICE-DE"
+    location: Tokyo
+    date_start: "2023-04-01"
+    date_end: ""
+
+  - title: FIT2023 プログラム委員
+    company: 電子情報通信学会データ工学研究会(DE)
+    company_url: "https://www.ipsj.or.jp/event/fit/fit2023/index.html"
+    location: Tokyo
+    date_start: "2022-09-01"
+    date_end: ""
+  
   - title: 正会員
     company: 社会情報学会 (SSI)
     company_url: "http://www.ssi.or.jp/"
@@ -30,14 +44,14 @@ experience:
     date_end: ""
 
   - title: FIT2022 研究会担当委員
-    company: 第21回情報科学技術フォーラム FIT2022
+    company: 電子情報通信学会データ工学研究会(DE)
     company_url: "https://www.ipsj.or.jp/event/fit/fit2022/index.html"
     location: Tokyo
     date_start: "2021-09-01"
     date_end: "2022-09-15"
 
   - title: FIT2021 研究会担当委員
-    company: 第20回情報科学技術フォーラム FIT2021
+    company: 電子情報通信学会データ工学研究会(DE)
     company_url: "https://www.ipsj.or.jp/event/fit/fit2021/"
     location: Tokyo
     date_start: "2020-09-01"
@@ -48,7 +62,7 @@ experience:
     company_url: "https://www.ieice.org/jpn_r/index.html"
     location: Tokyo
     date_start: "2021-04-01"
-    date_end: ""
+    date_end: "2023-03-31"
 
   - title: Professional Membership
     company: Association for Computing Machinery (ACM)

@@ -34,7 +34,7 @@ experience:
         * Web Communication
         * Information Literacy and Web Development
 
-  - title: Full-time Assistant / 専任教員 ( 助手 )
+  - title: Full-time Assistant / 専任教員 (助手)
     company: Faculty of Global Media Studies, Komazawa University
     company_url: "https://www.komazawa-u.ac.jp/english/"
     # company_logo: org-x

@@ -12,11 +12,11 @@ organizations:
 bio: Ken HONDA (Ph.D.) / Media Studies, Media Informatics, Data Engineering.
 
 interests:
-  - Media Studies
   - Media Informatics
   - Social Informatics
-  - Information Science
+  - Social Computing
   - Database Systems
+  - Human Computer Interface
 
 # Education to show in About widget
 education:
@@ -39,9 +39,9 @@ social:
   - icon: facebook
     icon_pack: fab
     link: https://www.facebook.com/knhnd/
-  - icon: linkedin
+  - icon: twitter
     icon_pack: fab
-    link: https://www.linkedin.com/in/ken-honda-0802/
+    link: https://www.facebook.com/knhnd/
   - icon: github
     icon_pack: fab
     link: https://github.com/knhnd
