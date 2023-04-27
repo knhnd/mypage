@@ -1,7 +1,7 @@
 ---
 title: Ken HONDA
 superuser: true
-role: Ph.D. (Media Studies) # Role/position/tagline
+role: Ph.D. (Media Studies) / Full-time Assistant # Role/position/tagline
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -13,7 +13,6 @@ bio: Ken HONDA (Ph.D.) / Komazawa University.
 
 interests:
   - Media Informatics
-  - Social Informatics
   - Social Computing
   - Database Systems
   - Human Computer Interface
@@ -41,7 +40,7 @@ social:
     link: https://www.facebook.com/knhnd/
   - icon: twitter
     icon_pack: fab
-    link: https://www.facebook.com/knhnd/
+    link: https://twitter.com/_kenken82
   - icon: github
     icon_pack: fab
     link: https://github.com/knhnd
@@ -60,8 +59,8 @@ email: ""
 highlight_name: true
 ---
 
-Ken HONDA was born in Tokyo, Japan. He is a researcher of Media Studies, Media Informatics, Data Engineering in Komazawa University. His research interests include Information System Design, Database Systems and Social Computing.
+Ken HONDA was born in Tokyo, Japan. He is a researcher of Media Informatics in Komazawa University. His research interests include Social Information System and Design.
 
-博士(メディア学)．専門はメディア学，メディア情報論．Web やデータベース技術を用いて情報システム・アプリケーションをデザインし，社会課題を解決する方法について研究しています．
+博士(メディア学)．専門はメディア情報学．Web やデータベース技術を用いて情報システムをデザインし，社会課題を解決する方法について研究．趣味は音楽，映画，アニメ，漫画，ゲームなどのメディアコンテンツ全般で遊ぶこと．
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

@@ -28,11 +28,13 @@ This is my portfolio web site for research, work and some activities.
 - `cd mypage`
 - `git submodule update --init --recursive` でテーマを initialize
 
-#### 3. サーバの起動
+#### 3. ローカルサーバの起動
 
 - `hugo server -D`
 
-#### 4. 設定変更
+## Config
+
+設定の変更方法.
 
 - `config/_default` 以下の `yaml` ファイルを編集
   - `config.yaml` : サイト全体の設定
@@ -44,9 +46,10 @@ This is my portfolio web site for research, work and some activities.
 
 内容を編集する際の対応ファイル一覧．
 
-- Biography: `home > _index.md`
-- Experience: `home > experience.md`
-- Academic Contribution: `home > academic.md`
+- Biography: `content > authors > ken > _index.md`
+- Publications: `content > publications > journal or paper`
+- Experience: `content > home > experience.md`
+- Academic Contribution: `content > home > academic.md`
 
 ## Build
 

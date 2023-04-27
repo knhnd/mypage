@@ -5,7 +5,7 @@ title: "An Evaluation Model of Credibility Calculation System for Natural Disast
 authors: [Ken HONDA, Naofumi YOSHIDA]
 tags: [Credibility Assessment, Evaluation Model]
 draft: false
-featured: true
+featured: false
 
 date: 2019-06-01T00:00:00Z
 publication: Information Modelling and Knowledge Bases ⅩⅩⅠⅩ, Vol.301, Frontiers in Artificial Intelligence and Applications, IOS Press, pp.429-440.
