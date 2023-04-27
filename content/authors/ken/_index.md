@@ -9,7 +9,7 @@ organizations:
     url: https://www.komazawa-u.ac.jp/english/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Ken HONDA (Ph.D.) / Media Studies, Media Informatics, Data Engineering.
+bio: Ken HONDA (Ph.D.) / Komazawa University.
 
 interests:
   - Media Informatics

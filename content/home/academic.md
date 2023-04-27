@@ -22,7 +22,7 @@ date_format: 2006-01-01
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-- title: 幹事
+  - title: 幹事
     company: 電子情報通信学会データ工学研究会(DE)
     company_url: "https://ken.ieice.org/ken/program/index.php?tgid=IEICE-DE"
     location: Tokyo
