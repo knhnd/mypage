@@ -51,6 +51,13 @@ This is my portfolio web site for research, work and some activities.
 - Experience: `content > home > experience.md`
 - Academic Contribution: `content > home > academic.md`
 
+新規のページ作成
+- `hugo new folder_name/title.md `
+  - ページは `content` 以下に生成される
+
+Publications の追加方法
+- ` hugo new publication/paper/2020/title.md` でテンプレート生成
+
 ## Build
 
 - プロジェクトルートで `hugo -D` を実行
