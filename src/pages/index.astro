@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-5xl font-bold">Ken Honda</div>
+    <div class="text-3xl py-3 font-bold">Ph.D. (Media Studies)</div>
+    <div class="py-2">
+      <text class="text-lg">
+        Full-time Assisstant at faculty of technology, International Professional University of Technology in Tokyo.
+      </text>
+    </div>
+  </div>
+
+  <div class="pb-12 mt-5">
+    <div class="text-3xl font-bold">本多 賢</div>
+    <div class="text-2xl py-3 font-bold">博士（メディア学）</div>
+    <div class="py-2">
+      <text class="text-lg">
+        東京国際工科専門職大学工科学部 助手．
+      </text>
+
+      <div class="text-1xl py-3 font-bold">研究テーマ</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects</div>
+  </div>
+
+  <HorizontalCard
+    title="Demo Project 1"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Demo Project 2"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Demo Project 3"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    badge="FOSS"
+  />
+
+
+</BaseLayout>
