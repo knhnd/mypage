@@ -1,8 +1,10 @@
 ---
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
+import profileImg from '../../public/profile.webp';
 import SideBarMenu from "./SideBarMenu.astro";
 const { sideBarActiveItemID } = Astro.props;
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <div class="drawer-side z-40">
@@ -12,7 +14,7 @@ const { sideBarActiveItemID } = Astro.props;
       <a href="/">
         <div class="avatar transition ease-in-out hover:scale-[102%] block m-auto">
           <div class="w-[8.5rem]">
-            <Image class="mask mask-circle" format="webp" width={300} height={300} src="/public/profile.webp" alt="Profile image" />
+            <Image class="mask mask-circle" format="webp" width={350} height={350} src={profileImg} alt="Profile image" />
           </div>
         </div>
       </a>
