@@ -1,14 +1,15 @@
 ---
 const { sideBarActiveItemID } = Astro.props;
 const activeClass = "bg-base-300"; // For primary color replace with `active` class
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <ul class="menu grow shrink menu-md overflow-y-auto">
-    <li><a class="py-3 text-base" id="home" href="/">Home</a></li>
-    <li><a class="py-3 text-base" id="about" href="/about">About Me</a></li>
-    <li><a class="py-3 text-base" id="projects" href="/projects">Projects</a></li>
-    <li><a class="py-3 text-base" id="publications" href="/publications">Publications</a></li>
-    <li><a class="py-3 text-base" id="lectures" href="/lectures">Lectures</a></li>
+    <li><a class="py-3 text-base" id="home" href={`${basePath}`}>Home</a></li>
+    <li><a class="py-3 text-base" id="about" href={`${basePath}about`}>About Me</a></li>
+    <li><a class="py-3 text-base" id="projects" href={`${basePath}projects`}>Projects</a></li>
+    <li><a class="py-3 text-base" id="publications" href={`${basePath}publications`}>Publications</a></li>
+    <li><a class="py-3 text-base" id="lectures" href={`${basePath}Lectures`}>Lectures</a></li>
     <li>
         <a
             class="py-3 text-base"
