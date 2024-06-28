@@ -57,3 +57,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テーマの
 - コンテンツ：`src/pages/` の `.astro` ファイル
 
 詳細は[リポジトリの README](https://github.com/manuelernestog/astrofy) を参照．
+
+## Deploy
+
+GitHub Pages にデプロイ
