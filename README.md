@@ -2,6 +2,8 @@
 
 This is my personal web page for research, work and some activities.
 
+- URL: https://knhnd.github.io/mypage/
+
 ### Setup
 
 Web フレームワーク [Astro](https://astro.build/) で実装．テーマのテンプレートに [Astrofy](https://astro.build/themes/details/astrofy-personal-porfolio-website-template/) を採用．
