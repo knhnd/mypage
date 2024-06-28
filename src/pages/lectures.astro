@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import TimeLineElement from "../components/TimeLine.astro";
+---
+
+<BaseLayout title = "Lectures" sideBarActiveItemID="lectures">
+  <div>
+    <div class="text-4xl w-full font-bold mb-5">Lectures</div>
+  </div><br><br><br>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-4">東京国際工科専門職大学</div>
+  </div>
+  <div class="divider my-0"></div>
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="機械学習"
+      subtitle="東京国際工科専門職大学 工科学部 情報工学科 AIコース"
+      date="From 2024-09 to present">
+    </TimeLineElement>
+</div><br>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-4">駒澤大学</div>
+  </div>
+  <div class="divider my-0"></div>
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="データサイエンス入門講座 統計とデータ分析の基礎"
+      subtitle="駒澤大学 社会連携センター 公開講座"
+      date="From 2024-04 to present">
+    </TimeLineElement>
+</div><br>
+
+    <div class="text-2xl w-full font-bold mb-4">青山学院大学</div>
+      </div>
+      <div class="divider my-0"></div>
+    <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Web入門と情報リテラシー"
+      subtitle="青山学院大学 地球社会共生学部 地球社会共生学科"
+      date="From 2022-04 to present">
+    </TimeLineElement>
+    <TimeLineElement
+      title="Webコミュニケーション"
+      subtitle="青山学院大学 地球社会共生学部"
+      date="From 2021-09 to present">
+    </TimeLineElement>
+  </div>
+</BaseLayout>

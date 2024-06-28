@@ -9,7 +9,10 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-3xl py-3 font-bold">Ph.D. (Media Studies)</div>
     <div class="py-2">
       <text class="text-lg">
-        Full-time Assisstant at faculty of technology, International Professional University of Technology in Tokyo.
+        Full-time Assisstant at Faculty of Technology, International Professional University of Technology in Tokyo.
+      </text><br>
+      <text class="text-lg">
+        Specialty: Media Informatics, Database Systems, Human Computer Interaction.
       </text>
     </div>
   </div>
@@ -19,39 +22,32 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-2xl py-3 font-bold">博士（メディア学）</div>
     <div class="py-2">
       <text class="text-lg">
-        東京国際工科専門職大学工科学部 助手．
+        東京国際工科専門職大学 工科学部 助手．
+      </text><br>
+      <text class="text-lg">
+        専門：メディア情報学, データベース, HCI.
       </text>
-
-      <div class="text-1xl py-3 font-bold">研究テーマ</div>
     </div>
   </div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects</div>
+  <div class="pb-12 mt-5">
+    <div class="text-2xl py-3 font-bold">Research Themes</div>
+      <ul>
+        <li>・Media Information Processing</li>
+        <li>・Social Computing</li>
+        <li>・Digital Social Trust</li>
+      </ul>
+  </div>
+
+  <div class="pb-12 mt-5">
+    <div class="text-3xl w-full font-bold mb-2">Recent Projects</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    title="情報アクセス支援のための信憑性評価アーキテクチャの実装と応用"
+    img="/vision.webp"
+    desc="An Implementation and Application of Credibility Evaluation Architecture for Supporting Information Access"
+    url="#projects"
   />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
-
 
 </BaseLayout>
