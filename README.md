@@ -60,4 +60,6 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テーマの
 
 ## Deploy
 
-GitHub Pages にデプロイ
+[公式ドキュメント](https://docs.astro.build/ja/guides/deploy/github/)を参考に GitHub Pages にデプロイ．
+
+---
