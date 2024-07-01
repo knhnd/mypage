@@ -6,21 +6,41 @@ const basePath = import.meta.env.BASE_URL;
 
 <ul class="menu grow shrink menu-md overflow-y-auto">
     <li><a class="py-3 text-base" id="home" href={`${basePath}`}>Home</a></li>
-    <li><a class="py-3 text-base" id="about" href={`${basePath}about`}>About Me</a></li>
-    <li><a class="py-3 text-base" id="projects" href={`${basePath}projects`}>Projects</a></li>
-    <li><a class="py-3 text-base" id="publications" href={`${basePath}publications`}>Publications</a></li>
-    <li><a class="py-3 text-base" id="lectures" href={`${basePath}lectures`}>Lectures</a></li>
+    <li>
+        <a class="py-3 text-base" id="about" href={`${basePath}about`}
+            >About Me</a>
+    </li>
+    <li>
+        <a class="py-3 text-base" id="projects" href={`${basePath}projects`}
+            >Projects</a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base"
+            id="publications"
+            href={`${basePath}publications`}>Publications</a>
+    </li>
+    <li>
+        <a class="py-3 text-base" id="lectures" href={`${basePath}lectures`}
+            >Lectures</a>
+    </li>
     <li>
         <a
             class="py-3 text-base"
             href="mailto:honda.ken@t.iput.ac.jp"
             target="_blank"
-            referrerpolicy="no-referrer-when-downgrade">Contact
+            referrerpolicy="no-referrer-when-downgrade"
+            >Contact
         </a>
     </li>
 </ul>
 
-<script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
-const activeItemElem = document.getElementById(sideBarActiveItemID);
-activeItemElem && activeItemElem.classList.add(activeClass);
+<script
+    define:vars={{
+        sideBarActiveItemID: sideBarActiveItemID,
+        activeClass: activeClass,
+    }}
+>
+    const activeItemElem = document.getElementById(sideBarActiveItemID);
+    activeItemElem && activeItemElem.classList.add(activeClass);
 </script>
