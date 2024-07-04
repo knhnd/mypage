@@ -26,7 +26,7 @@ jobs:
         with:
           version: '9.4.0'
       - name: Install, build, and upload your site
-        uses: withastro/action@v1
+        uses: withastro/action@v2
         with:
           package-manager: pnpm@latest
         # path: . # リポジトリ内のAstroプロジェクトのルートロケーション。(オプション)
