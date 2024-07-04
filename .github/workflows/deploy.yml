@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v1
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -30,6 +28,8 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: '9.4.0'
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
         # with:
         # path: . # リポジトリ内のAstroプロジェクトのルートロケーション。(オプション)
         # node-version: 18 # サイト構築に使用するNodeのバージョン。デフォルトは18です。（オプション）
