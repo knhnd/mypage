@@ -21,16 +21,8 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: '9.4.0'
       - name: Install, build, and upload your site
         uses: withastro/action@v2
-        with:
-          package-manager: pnpm@latest
-        # path: . # リポジトリ内のAstroプロジェクトのルートロケーション。(オプション)
-        # node-version: 18 # サイト構築に使用するNodeのバージョン。デフォルトは18です。（オプション）
 
   deploy:
     needs: build
@@ -41,4 +33,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
