@@ -18,7 +18,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 
 Astrofy のプロジェクト構成は以下のとおり（デフォルトからは少しだけ変えている）．
 
-```php
+```js
 ├── src/
 │   ├── components/
 │   │   ├── TimeLine
@@ -70,9 +70,9 @@ Astrofy のプロジェクト構成は以下のとおり（デフォルトから
 
 ## Deploy
 
-[公式ドキュメント](https://docs.astro.build/ja/guides/deploy/github/)を参考に GitHub Pages にデプロイ．
+[公式ドキュメント](https://docs.astro.build/ja/guides/deploy/github/)を参考に GitHub Pages へのデプロイ設定
 
-- `push` すれば自動デプロイ
+- `git push` して自動デプロイ
 
 ### Trouble Shooting
 

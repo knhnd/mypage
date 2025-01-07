@@ -1,9 +1,11 @@
 ---
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
+import defaultImg from "../../public/icon.webp";
 import profileImg from "../../public/profile.webp";
 import SideBarMenu from "./SideBarMenu.astro";
 const { sideBarActiveItemID } = Astro.props;
+const isProfilePage = sideBarActiveItemID === "cv";  // ページの識別
 ---
 
 <div class="drawer-side z-40">
@@ -22,7 +24,7 @@ const { sideBarActiveItemID } = Astro.props;
               format="webp"
               width={350}
               height={350}
-              src={profileImg}
+              src={isProfilePage ? profileImg : defaultImg}
               alt="Profile image"
             />
           </div>
