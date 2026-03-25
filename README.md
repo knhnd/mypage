@@ -16,7 +16,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 
 ### Project Structure
 
-Astrofy のプロジェクト構成は以下のとおり（デフォルトからは少しだけ変えている）．
+Astrofy のプロジェクト構成は以下のとおり（デフォルトからは少しだけ変えている）
 
 ```js
 ├── src/
