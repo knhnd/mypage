@@ -5,7 +5,8 @@ import defaultImg from "../../public/icon.webp";
 import profileImg from "../../public/profile.webp";
 import SideBarMenu from "./SideBarMenu.astro";
 const { sideBarActiveItemID } = Astro.props;
-const isProfilePage = sideBarActiveItemID === "cv";  // ページの識別
+const isProfilePage = sideBarActiveItemID === "about"; // About ページではプロフィール写真を表示
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <div class="drawer-side z-40">
@@ -14,7 +15,7 @@ const isProfilePage = sideBarActiveItemID === "cv";  // ページの識別
     class="px-2 pt-2 h-auto min-h-full w-[19rem] bg-base-200 text-base-content flex flex-col"
   >
     <div class="w-fit mx-auto mt-5 mb-6">
-      <a href="/">
+      <a href={basePath}>
         <div
           class="avatar transition ease-in-out hover:scale-[102%] block m-auto"
         >

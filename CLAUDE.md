@@ -25,4 +25,7 @@
 - 型定義: `src/data/types.ts`
 - サイトは `/mypage/` 配下で配信される．内部リンク・画像には `import.meta.env.BASE_URL` を前置する
 - パッケージマネージャは pnpm のみ（`package-lock.json` を作らない）
+- Astro 5 + `@astrojs/tailwind`（Tailwind 3 / daisyUI 4）．`@astrojs/tailwind` は Astro 6 以降に非対応のため，Astro 6+ へ上げる場合は Tailwind 4（`@tailwindcss/vite`）+ daisyUI 5 への移行が必要
+- `pnpm.overrides` は脆弱性対策．依存を更新したら `pnpm audit` で確認する
+- About ページ（`sideBarActiveItemID="about"`）ではサイドバーにプロフィール写真が表示される（`SideBar.astro`）
 - サイドバーのメニューは `src/components/SideBarMenu.astro`．各ページの `sideBarActiveItemID` とメニューの `id` を一致させる

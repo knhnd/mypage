@@ -8,7 +8,9 @@ This is my personal web page for research, work and some activities.
 
 Web フレームワーク [Astro](https://astro.build/) で実装．テンプレートテーマに [Astrofy](https://astro.build/themes/details/astrofy-personal-porfolio-website-template/) を採用．
 
+- Astro 5 系（Tailwind CSS 3 + daisyUI 4）
 - package manager: [`pnpm`](https://pnpm.io/ja/)（`package-lock.json` は置かない）
+- 間接依存の脆弱性対策として `package.json` の `pnpm.overrides` でバージョンを引き上げている
 - Install & Local Server
   - プロジェクトルートで `pnpm install` でパッケージインストール
   - `pnpm run dev` でローカルサーバの起動（`http://localhost:4321/mypage/`）
