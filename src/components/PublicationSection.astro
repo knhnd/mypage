@@ -1,0 +1,29 @@
+---
+// 業績リストの 1 セクション（見出し + カード一覧）
+import HorizontalCard from "./HorizontalCard.astro";
+import type { Publication } from "../data/types";
+
+interface Props {
+  heading: string;
+  items: Publication[];
+}
+
+const { heading, items } = Astro.props;
+---
+
+<div>
+  <div class="text-3xl w-full font-bold mb-4">{heading}</div>
+</div>
+<div class="divider my-0"></div>
+{
+  items.map((p) => (
+    <HorizontalCard
+      author={p.authors}
+      title={p.title}
+      desc={p.venue}
+      badge={p.badge}
+      url={p.url ?? "#"}
+    />
+  ))
+}
+<br /><br /><br />
