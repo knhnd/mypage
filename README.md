@@ -8,9 +8,9 @@ This is my personal web page for research, work and some activities.
 
 Web フレームワーク [Astro](https://astro.build/) で実装．テンプレートテーマに [Astrofy](https://astro.build/themes/details/astrofy-personal-porfolio-website-template/) を採用．
 
-- Astro 5 系（Tailwind CSS 3 + daisyUI 4）
+- Astro 7 + Tailwind CSS 4（`@tailwindcss/vite`）+ daisyUI 5（テーマ: lofi）
+- Node.js 22.23.4 以上
 - package manager: [`pnpm`](https://pnpm.io/ja/)（`package-lock.json` は置かない）
-- 間接依存の脆弱性対策として `package.json` の `pnpm.overrides` でバージョンを引き上げている
 - Install & Local Server
   - プロジェクトルートで `pnpm install` でパッケージインストール
   - `pnpm run dev` でローカルサーバの起動（`http://localhost:4321/mypage/`）
@@ -68,7 +68,7 @@ export const domesticPresentations: Publication[] = [
 │   │   ├── projects.ts        # 研究プロジェクト
 │   │   └── links.ts           # 外部リンク
 │   ├── components/            # UI 部品（TimeLine, HorizontalCard, PublicationSection など）
-│   ├── layouts/               # BaseLayout ほか
+│   ├── layouts/               # BaseLayout
 │   ├── pages/                 # 各ページ（data を読み込んで表示するだけ）
 │   │   ├── index.astro        # Home
 │   │   ├── about.astro        # About Me（CV）
@@ -76,10 +76,10 @@ export const domesticPresentations: Publication[] = [
 │   │   ├── publications.astro
 │   │   ├── lectures.astro
 │   │   └── others.astro
-│   ├── styles/global.css
+│   ├── styles/global.css      # Tailwind / daisyUI の読み込みと設定
 │   └── config.ts              # サイトタイトル等
 ├── public/                    # 画像・favicon
-├── astro.config.mjs           # site / base（/mypage/）設定
+├── astro.config.mjs           # site / base（/mypage/）設定，Tailwind の Vite プラグイン
 └── .github/workflows/deploy.yml
 ```
 

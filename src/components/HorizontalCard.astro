@@ -31,11 +31,11 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
         )
       }
       <div class="grow w-full">
-        <p class="py-1 text-1xl">{author}</p>
+        <p class="py-1">{author}</p>
         <h1 class="text-xl font-bold">
           {title}
         </h1>
-        <p class="py-1 text-1xl">{desc}</p>
+        <p class="py-1">{desc}</p>
         <div class="card-actions justify-end">
           {
             tags &&
@@ -46,7 +46,7 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
               ))
           }
         </div>
-        {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
+        {badge && <div class="badge badge-secondary mx-2 h-5 rounded-xs">{badge}</div>}
       </div>
     </div>
   </a>

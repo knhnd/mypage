@@ -25,7 +25,10 @@
 - 型定義: `src/data/types.ts`
 - サイトは `/mypage/` 配下で配信される．内部リンク・画像には `import.meta.env.BASE_URL` を前置する
 - パッケージマネージャは pnpm のみ（`package-lock.json` を作らない）
-- Astro 5 + `@astrojs/tailwind`（Tailwind 3 / daisyUI 4）．`@astrojs/tailwind` は Astro 6 以降に非対応のため，Astro 6+ へ上げる場合は Tailwind 4（`@tailwindcss/vite`）+ daisyUI 5 への移行が必要
-- `pnpm.overrides` は脆弱性対策．依存を更新したら `pnpm audit` で確認する
+- Astro 7（Node 22.23.4 以上）+ Tailwind CSS 4（`@tailwindcss/vite`）+ daisyUI 5（lofi テーマ）
+  - Tailwind / daisyUI の設定は `src/styles/global.css`（`tailwind.config` は無い）
+  - Astro 7 の Rust コンパイラは閉じタグ漏れをエラーにする．`.astro` のタグは必ず閉じる
+- 依存を更新したら `pnpm audit` で確認する
+- 見た目に影響する変更は，ブランチで作業し移行前後のスクリーンショットを比較してから main に入れる
 - About ページ（`sideBarActiveItemID="about"`）ではサイドバーにプロフィール写真が表示される（`SideBar.astro`）
 - サイドバーのメニューは `src/components/SideBarMenu.astro`．各ページの `sideBarActiveItemID` とメニューの `id` を一致させる
