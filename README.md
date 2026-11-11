@@ -31,6 +31,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 | 担当授業 | `src/data/lectures.ts` | `lectureGroups` |
 | 研究プロジェクト | `src/data/projects.ts` | `projects` |
 | 外部リンク | `src/data/links.ts` | `links` |
+| 連絡先メール（サイドバー Contact） | `src/data/links.ts` | `contactEmail` |
 
 - 配列の並び順がそのまま表示順．**新しいものは配列の先頭に追加**する
 - 型は `src/data/types.ts` に定義（エディタで補完・型チェックが効く）

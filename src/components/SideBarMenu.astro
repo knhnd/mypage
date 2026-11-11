@@ -1,4 +1,5 @@
 ---
+import { contactEmail } from "../data/links";
 const { sideBarActiveItemID } = Astro.props;
 const activeClass = "bg-base-300"; // For primary color replace with `active` class
 const basePath = import.meta.env.BASE_URL;
@@ -36,7 +37,7 @@ const basePath = import.meta.env.BASE_URL;
     <li>
         <a
             class="py-3 text-base"
-            href="mailto:honda.ken@t.iput.ac.jp"
+            href={`mailto:${contactEmail}`}
             target="_blank"
             referrerpolicy="no-referrer-when-downgrade"
             >Contact

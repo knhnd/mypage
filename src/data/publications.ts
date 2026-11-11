@@ -114,8 +114,7 @@ export const domesticPresentations: Publication[] = [
     title: "実空間の階層化と位置情報に基づく情報提供方式",
     venue:
       "第13回社会情報学会中部支部研究会 合同研究会, 椙山女学園大学 (名古屋), Japan, December 24, 2022.",
-    // TODO: 開催日（2022年12月）とバッジの年（2023）が不一致。要確認
-    badge: "SSI研究会2023",
+    badge: "SSI研究会2022",
     url: "https://ssicj.main.jp/2022/12/14/%e7%ac%ac13%e5%9b%9e%e3%80%80%e7%a4%be%e4%bc%9a%e6%83%85%e5%a0%b1%e5%ad%a6%e4%bc%9a%e4%b8%ad%e9%83%a8%e6%94%af%e9%83%a8%e7%a0%94%e7%a9%b6%e4%bc%9a%e3%80%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0/",
   },
   {
