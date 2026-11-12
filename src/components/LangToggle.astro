@@ -1,0 +1,42 @@
+---
+// 言語切り替えボタン：今いるページの、もう一方の言語版へリンクする
+import { localePath, slugFromUrl, useTranslations, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  /** true: 「EN / JA」の短い表示（スマホのヘッダー用） */
+  compact?: boolean;
+}
+
+const { lang, compact = false } = Astro.props;
+const tr = useTranslations(lang);
+const other: Lang = lang === "ja" ? "en" : "ja";
+const slug = slugFromUrl(Astro.url);
+// 404 ページにはもう一方の言語版が無いので、トップへ
+const href = localePath(other, slug === "404" ? "" : slug);
+---
+
+<a
+  href={href}
+  hreflang={other}
+  lang={other}
+  class="btn btn-ghost btn-sm px-2 font-normal"
+  aria-label={tr("lang.switchLabel")}
+  title={tr("lang.switchLabel")}
+>
+  <svg
+    class="w-4 h-4"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+  {compact ? other.toUpperCase() : tr("lang.switch")}
+</a>

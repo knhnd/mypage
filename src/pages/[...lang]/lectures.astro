@@ -1,0 +1,36 @@
+---
+// データは src/data/lectures.ts を編集してください
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TimeLineElement from "../../components/TimeLine.astro";
+import { lectureGroups } from "../../data/lectures";
+import { langPaths, t, useTranslations, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={tr("nav.lectures")} sideBarActiveItemID="lectures">
+  <div>
+    <div class="text-4xl w-full font-bold mb-5">{tr("lectures.title")}</div>
+  </div>
+  <br /><br /><br />
+
+  {
+    lectureGroups.map((group) => (
+      <>
+        <div>
+          <div class="text-2xl w-full font-bold mb-4">{t(group.institution, lang)}</div>
+        </div>
+        <div class="divider my-0" />
+        <div class="time-line-container mb-10">
+          {group.courses.map((course) => (
+            <TimeLineElement item={course} lang={lang} />
+          ))}
+        </div>
+        <br />
+      </>
+    ))
+  }
+</BaseLayout>

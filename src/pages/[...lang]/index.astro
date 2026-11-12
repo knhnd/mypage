@@ -1,0 +1,50 @@
+---
+// データは src/data/profile.ts と src/data/projects.ts を編集してください
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+import { projects } from "../../data/projects";
+import { degree, name, position, researchThemes, specialty } from "../../data/profile";
+import { langPaths, localePath, t, useTranslations, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
+const basePath = import.meta.env.BASE_URL;
+// projects.ts で featured: true のものを表示
+const featuredProjects = projects.filter((p) => p.featured);
+---
+
+<BaseLayout lang={lang} sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-5xl font-bold">{t(name, lang)}</div>
+    <div class="text-3xl py-3 font-bold">{t(degree, lang)}</div>
+    <div class="py-2 text-lg">
+      <p>{t(position, lang)}</p>
+      <p>{t(specialty, lang)}</p>
+    </div>
+  </div>
+
+  <div class="pb-12 mt-5">
+    <div class="text-2xl py-3 font-bold">{tr("home.researchThemes")}</div>
+    <ul>
+      {researchThemes.map((theme) => <li>・{t(theme, lang)}</li>)}
+    </ul>
+  </div>
+
+  <div class="pb-12 mt-5">
+    <div class="text-3xl w-full font-bold mb-2">{tr("home.recentProjects")}</div>
+  </div>
+
+  {
+    featuredProjects.map((p) => (
+      <HorizontalCard
+        title={t(p.title, lang)}
+        img={p.img ? `${basePath}${p.img}` : undefined}
+        desc={p.period}
+        url={localePath(lang, "projects")}
+        target="_self"
+      />
+    ))
+  }
+</BaseLayout>

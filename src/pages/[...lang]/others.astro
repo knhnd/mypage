@@ -1,0 +1,37 @@
+---
+// データは src/data/links.ts を編集してください
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { links } from "../../data/links";
+import { langPaths, t, useTranslations, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={tr("nav.others")} sideBarActiveItemID="others">
+  <div>
+    <div class="text-4xl w-full font-bold mb-5">{tr("others.title")}</div>
+  </div>
+  <br /><br /><br />
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-4">{tr("others.links")}</div>
+  </div>
+  <div class="divider my-0"></div>
+  <div class="time-line-container mb-10">
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            <a class="py-3 text-base" href={link.url} target="_blank" rel="noopener">
+              {t(link.label, lang)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <br />
+</BaseLayout>

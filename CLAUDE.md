@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-本多賢の個人ポートフォリオサイト（Astro + Astrofy テンプレート，GitHub Pages で公開）．
+本多賢の個人ポートフォリオサイト（Astro + Astrofy テンプレート，GitHub Pages で公開）．日英2言語（日本語がデフォルト）．
 
 ## 基本方針
 
@@ -9,7 +9,12 @@
 - 既存の書式に合わせる
   - 英語の国際業績は `venue` 末尾を `, 年.` で終える
   - 国内発表は `会議名, 会場, 日付, 年.` の形式．`badge` は会議略称＋年（例: `DEIM2024`）
-  - 授業・経歴の期間は `From YYYY-MM to present` / `From YYYY-MM to YYYY-MM` 形式
+  - 授業・経歴の期間は `start` / `end` に `"YYYY-MM"`（または `"YYYY-MM-DD"`）で書く．現在までなら `end: "present"`，単月なら `end` を省略，開始前なら `planned: true`．表示は言語ごとに自動整形される
+- 日英対応（`src/i18n/index.ts`）
+  - 言語で書き分ける項目は `{ ja: "...", en: "..." }`（型 `Localized`）．日英共通で良いものは文字列のまま
+  - 論文（`publications.ts`）は原題表記のため文字列のまま，両言語で同じものを表示する
+  - 新しい項目を追加するときは **ja と en の両方** を書く．英訳がユーザーから与えられていない場合は下訳を作り，下訳であることをユーザーに伝えて確認してもらう
+  - 見出し・メニューなどの固定文言は `src/i18n/index.ts` の `ui`
 - 論文タイトルや固有名詞はユーザーから渡された表記を **そのまま** 使う（例:「ビル大学」は正式タイトルなので直さない）
 - URL は推測で作らない．不明なら確認するか，公式ページを確認してから入れる
 
@@ -23,6 +28,8 @@
 ## 構成メモ
 
 - 型定義: `src/data/types.ts`
+- ページは `src/pages/[...lang]/*.astro` の1ファイルから日本語（`/mypage/about`）と英語（`/mypage/en/about`）を生成（`getStaticPaths = langPaths`）．新しいページもこの形で作り，サイト内リンクは `localePath(lang, "slug")` を使う
+- 言語切り替えは `LangToggle.astro`（PC はサイドバー右上，スマホはヘッダー右で `EN`/`JA` 表示）
 - サイトは `/mypage/` 配下で配信される．内部リンク・画像には `import.meta.env.BASE_URL` を前置する
 - パッケージマネージャは pnpm のみ（`package-lock.json` を作らない）
 - Astro 7（Node 22.23.4 以上）+ Tailwind CSS 4（`@tailwindcss/vite`）+ daisyUI 5（lofi テーマ）

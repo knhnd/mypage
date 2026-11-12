@@ -5,9 +5,10 @@ import defaultImg from "../../public/icon.webp";
 import profileImg from "../../public/profile.webp";
 import SideBarMenu from "./SideBarMenu.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-const { sideBarActiveItemID } = Astro.props;
+import LangToggle from "./LangToggle.astro";
+import { localePath, type Lang } from "../i18n";
+const { sideBarActiveItemID, lang } = Astro.props as { sideBarActiveItemID?: string; lang: Lang };
 const isProfilePage = sideBarActiveItemID === "about"; // About ページではプロフィール写真を表示
-const basePath = import.meta.env.BASE_URL;
 ---
 
 <div class="drawer-side z-40">
@@ -16,11 +17,12 @@ const basePath = import.meta.env.BASE_URL;
     class="relative px-2 pt-2 h-auto min-h-full w-[19rem] bg-base-200 text-base-content flex flex-col"
   >
     <!-- PC 表示ではここに切り替えボタン（スマホはヘッダー側） -->
-    <div class="hidden lg:block absolute top-2 right-2 z-10">
-      <ThemeToggle />
+    <div class="hidden lg:flex absolute top-2 right-2 z-10 gap-1 items-center">
+      <LangToggle lang={lang} />
+      <ThemeToggle lang={lang} />
     </div>
-    <div class="w-fit mx-auto mt-5 mb-6">
-      <a href={basePath}>
+    <div class="w-fit mx-auto mt-10 mb-6">
+      <a href={localePath(lang)}>
         <div
           class="avatar transition ease-in-out hover:scale-[102%] block m-auto"
         >
@@ -37,7 +39,7 @@ const basePath = import.meta.env.BASE_URL;
         </div>
       </a>
     </div>
-    <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
+    <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} lang={lang} />
     <SideBarFooter />
   </aside>
 </div>

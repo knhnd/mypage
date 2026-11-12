@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { LANGS, localePath, slugFromUrl, type Lang } from "../i18n";
 const basePath = import.meta.env.BASE_URL;
 
 export interface Props {
@@ -9,14 +10,19 @@ export interface Props {
 	description: string;
 	image?: string;
 	ogType?: string;
+	lang: Lang;
 }
 
 const {
 	title,
 	description,
-	image = "/social_img.webp",
+	image = `${import.meta.env.BASE_URL}icon.webp`,
 	ogType = "website",
+	lang,
 } = Astro.props;
+const slug = slugFromUrl(Astro.url);
+const site = Astro.site ?? Astro.url;
+const altUrl = (l: Lang) => new URL(localePath(l, slug), site).href;
 ---
 
 <!-- Global Metadata -->
@@ -25,6 +31,11 @@ const {
 <link rel="icon" type="image/svg+xml" href={`${basePath}favicon.svg`} />
 <meta name="generator" content={Astro.generator} />
 
+<!-- 言語の対応関係（検索エンジン向け） -->
+<link rel="canonical" href={altUrl(lang)} />
+{LANGS.map((l) => <link rel="alternate" hreflang={l} href={altUrl(l)} />)}
+<link rel="alternate" hreflang="x-default" href={altUrl("ja")} />
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -32,6 +43,7 @@ const {
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
+<meta property="og:locale" content={lang === "ja" ? "ja_JP" : "en_US"} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

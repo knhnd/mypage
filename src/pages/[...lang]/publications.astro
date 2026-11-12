@@ -1,0 +1,31 @@
+---
+// データは src/data/publications.ts を編集してください
+// 論文は原題表記のため、日英どちらのページでも同じ内容を表示（見出しのみ翻訳）
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PublicationSection from "../../components/PublicationSection.astro";
+import {
+  domesticPresentations,
+  internationalConferences,
+  journals,
+} from "../../data/publications";
+import { langPaths, useTranslations, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={tr("nav.publications")} sideBarActiveItemID="publications">
+  <div>
+    <div class="text-4xl w-full font-bold mb-5">{tr("publications.title")}</div>
+  </div>
+  <br /><br /><br />
+
+  <PublicationSection heading={tr("publications.journals")} items={journals} />
+  <PublicationSection
+    heading={tr("publications.international")}
+    items={internationalConferences}
+  />
+  <PublicationSection heading={tr("publications.domestic")} items={domesticPresentations} />
+</BaseLayout>

@@ -1,5 +1,29 @@
 ---
-const { title, subtitle, date, url, linkName } = Astro.props;
+import type { TimelineItem } from "../data/types";
+import { formatPeriod, formatYM, t, type Lang } from "../i18n";
+
+interface Props {
+  item: TimelineItem;
+  lang: Lang;
+}
+
+const { item, lang } = Astro.props;
+
+const title = [item.icon, t(item.title, lang)].filter(Boolean).join(" ");
+const subtitle = t(item.subtitle, lang);
+
+// 期間（予定のものは「YYYY年M月開始予定」）
+let period: string | undefined;
+if (item.start) {
+  period = item.planned
+    ? lang === "ja"
+      ? `${formatYM(item.start, lang)}開始予定`
+      : `Starting ${formatYM(item.start, lang)}`
+    : formatPeriod(item.start, item.end, lang);
+}
+const place = t(item.place, lang);
+const dateLine = [period, place].filter(Boolean).join(lang === "ja" ? "・" : ", ");
+const linkName = t(item.linkName, lang);
 ---
 
 <div class="flex">
@@ -12,12 +36,12 @@ const { title, subtitle, date, url, linkName } = Astro.props;
   <div class="experience__data bd-grid px-5">
     <h3 class="font-semibold mb-1">{title}</h3>
     {subtitle && <><span class="font-light text-sm">{subtitle}</span><br /></>}
-    {date && <><span class="font-light text-sm">{date}</span><br /></>}
+    {dateLine && <><span class="font-light text-sm">{dateLine}</span><br /></>}
     {
-      url && (
+      item.url && (
         <span class="font-light text-sm">
-          <a href={url} target="_blank" rel="noopener">
-            {linkName ?? url}
+          <a href={item.url} target="_blank" rel="noopener">
+            {linkName ?? item.url}
           </a>
         </span>
       )

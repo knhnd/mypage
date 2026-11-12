@@ -1,0 +1,42 @@
+---
+// データは src/data/career.ts（経歴）と src/data/profile.ts（プロフィール文）を編集してください
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TimeLineElement from "../../components/TimeLine.astro";
+import { academicContributions, education, experience } from "../../data/career";
+import { profileText } from "../../data/profile";
+import { langPaths, t, useTranslations, type Lang } from "../../i18n";
+
+export const getStaticPaths = langPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
+
+const sections = [
+  { heading: tr("about.experience"), items: experience },
+  { heading: tr("about.contributions"), items: academicContributions },
+  { heading: tr("about.education"), items: education },
+];
+---
+
+<BaseLayout lang={lang} title={tr("nav.about")} sideBarActiveItemID="about">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">{tr("about.profile")}</div>
+  </div>
+
+  <div class="mb-10 text-justify">{t(profileText, lang)}</div>
+
+  {
+    sections.map((s) => (
+      <>
+        <div class="mb-5">
+          <div class="text-3xl w-full font-bold">{s.heading}</div>
+        </div>
+        <div class="time-line-container mb-10">
+          {s.items.map((item) => (
+            <TimeLineElement item={item} lang={lang} />
+          ))}
+        </div>
+      </>
+    ))
+  }
+</BaseLayout>

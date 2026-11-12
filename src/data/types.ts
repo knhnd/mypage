@@ -1,7 +1,14 @@
 // サイトに表示するデータの型定義
 // 各データファイル（publications.ts など）はこの型に沿って書く
+//
+// Localized: 言語ごとに書き分ける文字列
+//   - 日英で同じで良いもの（論文名など）→ "そのまま文字列"
+//   - 書き分けるもの → { ja: "日本語", en: "English" }
 
-/** 論文・発表 1件 */
+import type { Localized } from "../i18n";
+export type { Localized };
+
+/** 論文・発表 1件（原題表記のため、日英どちらのページでも同じ内容を表示） */
 export interface Publication {
   /** 著者（カンマ区切りの文字列） */
   authors: string;
@@ -15,39 +22,51 @@ export interface Publication {
   url?: string;
 }
 
-/** タイムライン形式の項目（経歴・学歴・授業など） */
+/**
+ * タイムライン形式の項目（経歴・学会活動・学歴・授業）
+ * 期間は start / end に "YYYY-MM"（または "YYYY-MM-DD"）で書くと、言語ごとに自動で整形される
+ *   - end なし → 単月（2023年7月 / Jul 2023）
+ *   - end: "present" → 現在まで（2025年4月〜現在 / Apr 2025 – Present）
+ */
 export interface TimelineItem {
-  title: string;
-  subtitle?: string;
-  /** 期間（例: "From 2025-04 to present"） */
-  date?: string;
+  /** 先頭に付ける絵文字（例: "🎓"） */
+  icon?: string;
+  title: Localized;
+  subtitle?: Localized;
+  start?: string;
+  end?: string;
+  /** 場所（例: { ja: "東京", en: "Tokyo, Japan" }） */
+  place?: Localized;
+  /** 開講・着任前の予定（期間の代わりに「YYYY年度開始予定」と表示） */
+  planned?: boolean;
   /** 関連リンク */
   url?: string;
   /** リンクの表示名（例: "🌐 Website"） */
-  linkName?: string;
+  linkName?: Localized;
 }
 
 /** 担当授業（所属機関ごと） */
 export interface LectureGroup {
-  institution: string;
+  institution: Localized;
   courses: TimelineItem[];
 }
 
 /** 研究プロジェクト（研究費など） */
 export interface Project {
-  title: string;
-  /** 英語タイトルや概要 */
-  desc: string;
+  title: Localized;
+  /** 実施期間（例: "2026–2027"） */
+  period?: string;
   /** public/ 以下の画像ファイル名（例: "vision.webp"） */
   img?: string;
   url?: string;
-  badge?: string;
-  /** トップページの Recent Projects に表示するか */
+  /** キーワード（バッジ表示） */
+  keywords?: Localized;
+  /** トップページの「最近のプロジェクト」に表示するか */
   featured?: boolean;
 }
 
 /** 外部リンク */
 export interface LinkItem {
-  label: string;
+  label: Localized;
   url: string;
 }

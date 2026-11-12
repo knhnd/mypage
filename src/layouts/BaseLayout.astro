@@ -5,31 +5,51 @@ import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 import ThemeScript from "../components/ThemeScript.astro";
 import { ClientRouter } from "astro:transitions";
+import { TRANSITION_API } from "../config";
+import { useTranslations, type Lang } from "../i18n";
 
-import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  image?: string;
+  includeSidebar?: boolean;
+  sideBarActiveItemID?: string;
+  ogType?: string;
+}
 
 const {
+  lang,
+  title,
+  description,
   image,
-  title = SITE_TITLE,
-  description = SITE_DESCRIPTION,
   includeSidebar = true,
   sideBarActiveItemID,
   ogType,
 } = Astro.props;
+const tr = useTranslations(lang);
+const siteTitle = tr("siteTitle");
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <ThemeScript />
-    <BaseHead title={title} description={description} image={image} , ogType={ogType} />
+    <BaseHead
+      lang={lang}
+      title={pageTitle}
+      description={description ?? tr("siteDescription")}
+      image={image}
+      ogType={ogType}
+    />
     {TRANSITION_API && <ClientRouter />}
   </head>
   <body>
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
-        <Header title={SITE_TITLE} />
+        <Header lang={lang} />
         <div class="md:flex md:justify-center">
           <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
             <slot />
@@ -37,7 +57,7 @@ const {
         </div>
         <Footer />
       </div>
-      {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
+      {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} lang={lang} />}
     </div>
   </body>
 </html>

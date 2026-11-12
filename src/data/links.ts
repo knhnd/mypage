@@ -1,4 +1,5 @@
 // 外部リンク（Others ページ）・連絡先
+// label は日英共通なら文字列、書き分けるなら { ja, en }
 
 import type { LinkItem } from "./types";
 

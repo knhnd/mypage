@@ -6,7 +6,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://knhnd.github.io/mypage/',
   base: '/mypage/',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // 日英ページの対応関係（hreflang）を sitemap にも出力
+      i18n: { defaultLocale: 'ja', locales: { ja: 'ja-JP', en: 'en-US' } },
+    }),
+  ],
   build: {
     // CSS を各ページの HTML に埋め込む。
     // GitHub Pages は HTML を最大10分キャッシュするため、別ファイルにすると

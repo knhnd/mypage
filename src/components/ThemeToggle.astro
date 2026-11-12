@@ -1,13 +1,16 @@
 ---
 // ライト / ダークの切り替えボタン
-// 状態の管理は BaseLayout.astro の <head> 内スクリプト（window.__theme）が行う
+// 状態の管理は ThemeScript.astro（<head> 内スクリプト）が行う
+import { useTranslations, type Lang } from "../i18n";
+const { lang = "ja" } = Astro.props as { lang?: Lang };
+const tr = useTranslations(lang);
 ---
 
 <button
   type="button"
   class="theme-toggle btn btn-ghost btn-circle btn-sm"
-  aria-label="ライト/ダークモードを切り替える"
-  title="ライト/ダークモードを切り替える"
+  aria-label={tr("theme.toggle")}
+  title={tr("theme.toggle")}
 >
   <!-- ライト時に表示: 月（押すとダークへ） -->
   <svg

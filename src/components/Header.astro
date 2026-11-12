@@ -1,6 +1,9 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-const basePath = import.meta.env.BASE_URL;
+import LangToggle from "./LangToggle.astro";
+import { localePath, useTranslations, type Lang } from "../i18n";
+const { lang } = Astro.props as { lang: Lang };
+const tr = useTranslations(lang);
 ---
 
 <div
@@ -8,7 +11,7 @@ const basePath = import.meta.env.BASE_URL;
 >
   <div class="navbar">
     <div class="navbar-start">
-      <label for="my-drawer" class="btn btn-square btn-ghost">
+      <label for="my-drawer" class="btn btn-square btn-ghost" aria-label={tr("menu.open")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -23,12 +26,13 @@ const basePath = import.meta.env.BASE_URL;
       </label>
     </div>
     <div class="navbar-center">
-      <a class="btn btn-ghost normal-case text-xl" href={basePath}
-        >Ken HONDA WebPage 🚀</a
+      <a class="btn btn-ghost normal-case text-base sm:text-xl px-2" href={localePath(lang)}
+        >{tr("siteTitle")} 🚀</a
       >
     </div>
-    <div class="navbar-end">
-      <ThemeToggle />
+    <div class="navbar-end gap-0">
+      <LangToggle lang={lang} compact />
+      <ThemeToggle lang={lang} />
     </div>
   </div>
 </div>
