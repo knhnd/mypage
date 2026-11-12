@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
+import ThemeScript from "../components/ThemeScript.astro";
 import { ClientRouter } from "astro:transitions";
 
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
@@ -18,8 +19,9 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="lofi">
+<html lang="en">
   <head>
+    <ThemeScript />
     <BaseHead title={title} description={description} image={image} , ogType={ogType} />
     {TRANSITION_API && <ClientRouter />}
   </head>

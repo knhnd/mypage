@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
-/* daisyUI 5: lofi テーマを使用（<html data-theme="lofi">） */
+/*
+ * daisyUI 5
+ * - ライト: lofi（既定） / ダーク: black（OS がダークのとき）
+ * - 手動切り替えは <html data-theme="..."> で上書き（ThemeScript.astro）
+ */
 @plugin "daisyui" {
-  themes: lofi --default;
+  themes: lofi --default, black --prefersdark;
   logs: false;
+}
+
+/* `dark:` バリアントを daisyUI のダークテーマに連動させる */
+@custom-variant dark (&:where([data-theme=black], [data-theme=black] *));
+
+/* SNS アイコンをテーマの文字色に合わせる */
+.social-icons svg {
+  fill: currentColor;
 }
 
 /* タイムラインの最後の項目では縦線を出さない */

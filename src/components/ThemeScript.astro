@@ -1,0 +1,52 @@
+---
+// テーマ（ライト / ダーク）の初期化スクリプト
+// - <head> 内でインライン実行し、描画前に data-theme を決めてちらつきを防ぐ
+// - 保存された選択（localStorage）があればそれを、無ければ OS の設定を使う
+// - ClientRouter のページ遷移後（astro:after-swap）にも再適用する
+---
+
+<script is:inline>
+  (() => {
+    const KEY = "theme";
+    const LIGHT = "lofi";
+    const DARK = "black";
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const stored = () => {
+      try {
+        const v = localStorage.getItem(KEY);
+        return v === LIGHT || v === DARK ? v : null;
+      } catch {
+        return null;
+      }
+    };
+    const current = () => stored() ?? (media.matches ? DARK : LIGHT);
+    const apply = () => {
+      document.documentElement.setAttribute("data-theme", current());
+    };
+    const toggle = () => {
+      const next = current() === DARK ? LIGHT : DARK;
+      try {
+        localStorage.setItem(KEY, next);
+      } catch {}
+      apply();
+    };
+
+    apply();
+
+    // 保存された選択が無い間は OS の設定変更に追従する
+    media.addEventListener("change", () => {
+      if (!stored()) apply();
+    });
+
+    // ページ遷移時に <html> の属性が差し替わるので再適用
+    document.addEventListener("astro:after-swap", apply);
+
+    // 切り替えボタン（.theme-toggle）はイベント委譲で拾う
+    document.addEventListener("click", (e) => {
+      if (e.target instanceof Element && e.target.closest(".theme-toggle")) {
+        toggle();
+      }
+    });
+  })();
+</script>

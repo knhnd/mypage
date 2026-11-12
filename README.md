@@ -10,6 +10,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 
 - Astro 7 + Tailwind CSS 4（`@tailwindcss/vite`）+ daisyUI 5（テーマ: lofi）
 - Node.js 22.23.4 以上
+- ダークモード対応（OS 設定に自動追従＋手動切り替え．選択はブラウザに保存）
 - package manager: [`pnpm`](https://pnpm.io/ja/)（`package-lock.json` は置かない）
 - Install & Local Server
   - プロジェクトルートで `pnpm install` でパッケージインストール

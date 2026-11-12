@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import defaultImg from "../../public/icon.webp";
 import profileImg from "../../public/profile.webp";
 import SideBarMenu from "./SideBarMenu.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 const { sideBarActiveItemID } = Astro.props;
 const isProfilePage = sideBarActiveItemID === "about"; // About ページではプロフィール写真を表示
 const basePath = import.meta.env.BASE_URL;
@@ -12,8 +13,12 @@ const basePath = import.meta.env.BASE_URL;
 <div class="drawer-side z-40">
   <label for="my-drawer" class="drawer-overlay"></label>
   <aside
-    class="px-2 pt-2 h-auto min-h-full w-[19rem] bg-base-200 text-base-content flex flex-col"
+    class="relative px-2 pt-2 h-auto min-h-full w-[19rem] bg-base-200 text-base-content flex flex-col"
   >
+    <!-- PC 表示ではここに切り替えボタン（スマホはヘッダー側） -->
+    <div class="hidden lg:block absolute top-2 right-2 z-10">
+      <ThemeToggle />
+    </div>
     <div class="w-fit mx-auto mt-5 mb-6">
       <a href={basePath}>
         <div
