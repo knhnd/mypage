@@ -77,7 +77,7 @@ export function formatPeriod(start: string, end: string | undefined, lang: Lang)
 
 export const ui = {
   ja: {
-    siteTitle: "本多 賢 Webページ",
+    siteTitle: "Ken HONDA WebPage",
     siteDescription: "本多賢の研究・仕事・活動を紹介する個人ページです。",
     "nav.home": "ホーム",
     "nav.about": "プロフィール",
@@ -107,7 +107,7 @@ export const ui = {
     "404.message": "お探しのページは見つかりませんでした。",
   },
   en: {
-    siteTitle: "Ken HONDA Webpage",
+    siteTitle: "Ken HONDA WebPage",
     siteDescription: "This is my personal webpage for research, work and some activities.",
     "nav.home": "Home",
     "nav.about": "About Me",
