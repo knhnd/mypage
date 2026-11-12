@@ -2,13 +2,11 @@
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
 import defaultImg from "../../public/icon.webp";
-import profileImg from "../../public/profile.webp";
 import SideBarMenu from "./SideBarMenu.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import LangToggle from "./LangToggle.astro";
 import { localePath, type Lang } from "../i18n";
 const { sideBarActiveItemID, lang } = Astro.props as { sideBarActiveItemID?: string; lang: Lang };
-const isProfilePage = sideBarActiveItemID === "about"; // About ページではプロフィール写真を表示
 ---
 
 <div class="drawer-side z-40">
@@ -32,7 +30,7 @@ const isProfilePage = sideBarActiveItemID === "about"; // About ページでは�
               format="webp"
               width={350}
               height={350}
-              src={isProfilePage ? profileImg : defaultImg}
+              src={defaultImg}
               alt="Profile image"
             />
           </div>

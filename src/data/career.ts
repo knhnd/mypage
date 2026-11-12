@@ -1,4 +1,4 @@
-// 経歴・学会活動・学歴（About ページ）
+// 経歴・学会活動（About ページ）
 // 新しいものを各配列の「先頭」に追加してください（上から順に表示されます）
 // プロフィール文は profile.ts にあります
 
@@ -137,36 +137,5 @@ export const academicContributions: TimelineItem[] = [
     },
     start: "2020-04-01",
     end: "2023-03-31",
-  },
-];
-
-/** 学歴 */
-export const education: TimelineItem[] = [
-  {
-    icon: "🎓",
-    title: {
-      ja: "駒澤大学大学院 グローバル・メディア研究科 グローバル・メディア専攻 博士後期課程 修了（博士（メディア学））",
-      en: "Received a Ph.D. degree in Media from Graduate School of Global Media, Komazawa University",
-    },
-    start: "2020-03",
-    place: TOKYO,
-  },
-  {
-    icon: "🎓",
-    title: {
-      ja: "駒澤大学大学院 グローバル・メディア研究科 グローバル・メディア専攻 修士課程 修了（修士（メディア学））",
-      en: "Received a M.A. degree in Media from Graduate School of Global Media, Komazawa University",
-    },
-    start: "2017-03",
-    place: TOKYO,
-  },
-  {
-    icon: "🎓",
-    title: {
-      ja: "駒澤大学 グローバル・メディア・スタディーズ学部 グローバル・メディア学科 卒業",
-      en: "Received a B.A. degree in Media from Faculty of Global Media Studies, Komazawa University",
-    },
-    start: "2015-03",
-    place: TOKYO,
   },
 ];

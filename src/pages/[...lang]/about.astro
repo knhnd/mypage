@@ -2,7 +2,7 @@
 // データは src/data/career.ts（経歴）と src/data/profile.ts（プロフィール文）を編集してください
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TimeLineElement from "../../components/TimeLine.astro";
-import { academicContributions, education, experience } from "../../data/career";
+import { academicContributions, experience } from "../../data/career";
 import { profileText } from "../../data/profile";
 import { langPaths, t, useTranslations, type Lang } from "../../i18n";
 
@@ -14,7 +14,6 @@ const tr = useTranslations(lang);
 const sections = [
   { heading: tr("about.experience"), items: experience },
   { heading: tr("about.contributions"), items: academicContributions },
-  { heading: tr("about.education"), items: education },
 ];
 ---
 

@@ -30,7 +30,6 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 | 国内学会発表 | `src/data/publications.ts` | `domesticPresentations` |
 | 職歴 | `src/data/career.ts` | `experience` |
 | 学会活動 | `src/data/career.ts` | `academicContributions` |
-| 学歴 | `src/data/career.ts` | `education` |
 | 担当授業 | `src/data/lectures.ts` | `lectureGroups` |
 | 研究プロジェクト | `src/data/projects.ts` | `projects` |
 | 外部リンク | `src/data/links.ts` | `links` |
@@ -67,7 +66,7 @@ export const domesticPresentations: Publication[] = [
 │   │   ├── types.ts           # データの型定義
 │   │   ├── profile.ts         # 名前・職位・研究テーマ・プロフィール文
 │   │   ├── publications.ts    # 業績
-│   │   ├── career.ts          # 経歴・学会活動・学歴
+│   │   ├── career.ts          # 経歴・学会活動
 │   │   ├── lectures.ts        # 担当授業
 │   │   ├── projects.ts        # 研究プロジェクト
 │   │   └── links.ts           # 外部リンク

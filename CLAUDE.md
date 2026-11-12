@@ -43,5 +43,5 @@
   - ダーク時だけのスタイルは `dark:` バリアント（`global.css` で `data-theme=black` に連動）
   - 色は `bg-base-*` / `text-base-content` などテーマ変数を使い，白黒の直指定は避ける
 - 見た目に影響する変更は，ブランチで作業し移行前後のスクリーンショットを比較してから main に入れる
-- About ページ（`sideBarActiveItemID="about"`）ではサイドバーにプロフィール写真が表示される（`SideBar.astro`）
+- プライバシーのため，顔写真は載せない（サイドバーのアイコンは全ページ猫の `icon.webp`）．学歴も載せない
 - サイドバーのメニューは `src/components/SideBarMenu.astro`．各ページの `sideBarActiveItemID` とメニューの `id` を一致させる
