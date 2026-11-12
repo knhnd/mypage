@@ -30,6 +30,7 @@
   - Astro 7 の Rust コンパイラは閉じタグ漏れをエラーにする．`.astro` のタグは必ず閉じる
 - 依存を更新したら `pnpm audit` で確認する
 - ダークモード: ライト=lofi / ダーク=black（daisyUI テーマ）
+  - black は真っ黒すぎるため，`global.css` の `@plugin "daisyui/theme"` でダークグレー（本文 #1f1f1f，サイドバー #262626）に上書きしている．色を変えるときはここを編集
   - 初期化・切り替え・ページ遷移後の再適用は `ThemeScript.astro`（`<head>` 内インライン），ボタンは `ThemeToggle.astro`（PC はサイドバー右上，スマホはヘッダー右）
   - ダーク時だけのスタイルは `dark:` バリアント（`global.css` で `data-theme=black` に連動）
   - 色は `bg-base-*` / `text-base-content` などテーマ変数を使い，白黒の直指定は避ける
