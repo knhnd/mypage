@@ -1,4 +1,4 @@
-// トップページと About ページのプロフィール
+// トップページのプロフィール
 
 import type { Localized } from "./types";
 
@@ -26,9 +26,3 @@ export const researchThemes: Localized[] = [
   { ja: "ソーシャルコンピューティング", en: "Social Computing" },
   { ja: "デジタルソーシャルトラスト", en: "Digital Social Trust" },
 ];
-
-/** プロフィール文（About ページ） */
-export const profileText: Localized = {
-  ja: "東京都西東京市生まれ。メディア情報学，データベースシステム，ヒューマンコンピュータインタラクションに関する研究に取り組んでいます。",
-  en: "I was born in Nishi-tokyo city, Tokyo, Japan. My research interests are related to Media Informatics, Database Systems and Human Computer Interaction.",
-};

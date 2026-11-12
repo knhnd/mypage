@@ -1,6 +1,5 @@
 // 経歴・学会活動（About ページ）
 // 新しいものを各配列の「先頭」に追加してください（上から順に表示されます）
-// プロフィール文は profile.ts にあります
 
 import type { Localized, TimelineItem } from "./types";
 

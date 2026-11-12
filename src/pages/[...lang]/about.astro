@@ -1,10 +1,9 @@
 ---
-// データは src/data/career.ts（経歴）と src/data/profile.ts（プロフィール文）を編集してください
+// データは src/data/career.ts（職歴・学会活動）を編集してください
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TimeLineElement from "../../components/TimeLine.astro";
 import { academicContributions, experience } from "../../data/career";
-import { profileText } from "../../data/profile";
-import { langPaths, t, useTranslations, type Lang } from "../../i18n";
+import { langPaths, useTranslations, type Lang } from "../../i18n";
 
 export const getStaticPaths = langPaths;
 
@@ -18,12 +17,6 @@ const sections = [
 ---
 
 <BaseLayout lang={lang} title={tr("nav.about")} sideBarActiveItemID="about">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">{tr("about.profile")}</div>
-  </div>
-
-  <div class="mb-10 text-justify">{t(profileText, lang)}</div>
-
   {
     sections.map((s) => (
       <>

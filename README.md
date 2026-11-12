@@ -24,7 +24,7 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 
 | 更新したいもの | 編集するファイル | 変数 |
 | --- | --- | --- |
-| 名前・職位・専門・研究テーマ・プロフィール文 | `src/data/profile.ts` | `name` ほか |
+| 名前・学位・職位・専門・研究テーマ | `src/data/profile.ts` | `name` ほか |
 | 論文誌 | `src/data/publications.ts` | `journals` |
 | 国際会議 | `src/data/publications.ts` | `internationalConferences` |
 | 国内学会発表 | `src/data/publications.ts` | `domesticPresentations` |
@@ -64,7 +64,7 @@ export const domesticPresentations: Publication[] = [
 ├── src/
 │   ├── data/                  # ← コンテンツはここ
 │   │   ├── types.ts           # データの型定義
-│   │   ├── profile.ts         # 名前・職位・研究テーマ・プロフィール文
+│   │   ├── profile.ts         # 名前・学位・職位・研究テーマ
 │   │   ├── publications.ts    # 業績
 │   │   ├── career.ts          # 経歴・学会活動
 │   │   ├── lectures.ts        # 担当授業
