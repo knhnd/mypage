@@ -39,6 +39,8 @@ interface RMPresentation extends RMItem {
   from_event_date?: string;
   to_event_date?: string;
   languages?: string[];
+  /** researchmap の「国際・国内」（未設定の場合あり） */
+  is_international_presentation?: boolean;
 }
 
 // ---- 変換ヘルパー ----
@@ -77,6 +79,8 @@ const parts = (d: string) => d.split("-").map(Number) as [number, number?, numbe
 /** 日付（範囲）を言語に合わせて整形: 2026年9月16日〜18日 / Sep 16–18, 2026 */
 function formatDateRange(from: string | undefined, to: string | undefined, lang: "ja" | "en"): string {
   if (!from) return "";
+  // 終了日が開始日より粗い（例: 開始 "2018-06-04"・終了 "2018"）場合は開始日のみ表示
+  if (to && to.split("-").length < from.split("-").length) to = undefined;
   const [y1, m1, d1] = parts(from);
   const [y2, m2, d2] = to ? parts(to) : [y1, m1, d1];
   if (lang === "ja") {
@@ -171,14 +175,22 @@ export const otherPapers: Publication[] = papers
   .map(toPaper)
   .sort(byDateDesc);
 
-/** 国際発表（会議名に日本語を含まないもの） */
+/**
+ * 国際発表かどうか
+ * researchmap の「国際・国内」が設定されていればそれに従い、
+ * 未設定なら会議名に日本語を含まないものを国際とみなす
+ */
+const isInternational = (p: RMPresentation) =>
+  p.is_international_presentation ?? !hasJapanese(p.event?.ja ?? p.event?.en);
+
+/** 国際発表 */
 export const internationalPresentations: Publication[] = presentations
-  .filter((p) => !hasJapanese(p.event?.ja ?? p.event?.en))
+  .filter(isInternational)
   .map(toPresentation)
   .sort(byDateDesc);
 
 /** 国内発表 */
 export const domesticPresentations: Publication[] = presentations
-  .filter((p) => hasJapanese(p.event?.ja ?? p.event?.en))
+  .filter((p) => !isInternational(p))
   .map(toPresentation)
   .sort(byDateDesc);

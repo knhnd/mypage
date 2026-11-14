@@ -314,7 +314,7 @@
     ]
   },
   "presentations": {
-    "total_items": 6,
+    "total_items": 17,
     "items": [
       {
         "@id": "https://api.researchmap.jp/kenh/presentations/54769891",
@@ -614,6 +614,458 @@
         "from_event_date": "2024-09-18",
         "to_event_date": "2024-09-20",
         "invited": false,
+        "languages": [
+          "jpn"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/44119005",
+        "@type": "presentations",
+        "rm:id": "44119005",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2023-11-27T14:23:24Z",
+        "rm:modified": "2026-11-14T07:26:04Z",
+        "presentation_title": {
+          "ja": "階層的なエリア分割と関連情報の提供方式の実装"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "糸賀千晴"
+            },
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "服部哲"
+            },
+            {
+              "name": "青柳西蔵"
+            },
+            {
+              "name": "山口浩"
+            }
+          ]
+        },
+        "event": {
+          "ja": "第119回グループウェアとネットワークサービス研究発表会, 2023年3月13,14日, 国士舘大学．"
+        },
+        "publication_date": "2023-03-13",
+        "from_event_date": "2023-03-13",
+        "to_event_date": "2023-03-14",
+        "languages": [
+          "jpn"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/44119002",
+        "@type": "presentations",
+        "rm:id": "44119002",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2023-11-27T14:20:38Z",
+        "rm:modified": "2026-11-14T07:26:00Z",
+        "presentation_title": {
+          "ja": "実空間の階層化と位置情報に基づく情報提供方式"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "糸賀千晴"
+            },
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "服部哲"
+            },
+            {
+              "name": "青柳西蔵"
+            },
+            {
+              "name": "山口浩"
+            }
+          ]
+        },
+        "event": {
+          "ja": "第13回社会情報学会中部支部研究会 合同研究会, 2022年12月24日, 椙山女学園大学."
+        },
+        "publication_date": "2022-12-24",
+        "from_event_date": "2022-12-24",
+        "invited": false,
+        "languages": [
+          "jpn"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797801",
+        "@type": "presentations",
+        "rm:id": "39797801",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T06:24:56Z",
+        "rm:modified": "2026-11-14T07:25:58Z",
+        "presentation_title": {
+          "ja": "複数のエッジデバイスを用いた混雑率可視化のためのデータ統合方式",
+          "en": "Data Integration Method for Congestion Rate Visualization Using Multiple Edge Devices"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "糸賀千晴"
+            },
+            {
+              "name": "滝田巧平"
+            },
+            {
+              "name": "本多賢"
+            }
+          ]
+        },
+        "event": {
+          "ja": "第21回情報科学技術フォーラム FIT2022, 2022年9月14日, 慶應義塾大学"
+        },
+        "publication_date": "2022-09-14",
+        "from_event_date": "2022-09-13",
+        "to_event_date": "2022-09-15",
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797858",
+        "@type": "presentations",
+        "rm:id": "39797858",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T06:27:22Z",
+        "rm:modified": "2026-11-14T07:25:56Z",
+        "presentation_title": {
+          "ja": "大学を対象としたUX向上のためのシステム開発と導入に向けた検討"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "糸賀千晴"
+            },
+            {
+              "name": "滝田巧平"
+            },
+            {
+              "name": "福盛慎平"
+            },
+            {
+              "name": "井上和希"
+            },
+            {
+              "name": "本多賢"
+            }
+          ]
+        },
+        "event": {
+          "ja": "社会情報学会 2022年学会大会 2022年9月5日, 東北大学"
+        },
+        "publication_date": "2022-09-05",
+        "from_event_date": "2022-09-04",
+        "to_event_date": "2022-09-05",
+        "invited": false,
+        "languages": [
+          "jpn"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797710",
+        "@type": "presentations",
+        "rm:id": "39797710",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T06:21:40Z",
+        "rm:modified": "2026-11-14T07:26:32Z",
+        "presentation_title": {
+          "ja": "A Sensor Data Integration Method and Implementation by Software Engineering",
+          "en": "A Sensor Data Integration Method and Implementation by Software Engineering"
+        },
+        "presenters": {
+          "en": [
+            {
+              "name": "Kimmo Flykt"
+            },
+            {
+              "name": "Ken Honda"
+            },
+            {
+              "name": "Ajantha Dahanayake"
+            },
+            {
+              "name": "Naofumi Yoshida"
+            }
+          ]
+        },
+        "event": {
+          "ja": "WebDB Forum 2019"
+        },
+        "publication_date": "2019-09-08",
+        "from_event_date": "2019-09-08",
+        "to_event_date": "2019-09-09",
+        "languages": [
+          "eng"
+        ],
+        "presentation_type": "poster_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797316",
+        "@type": "presentations",
+        "rm:id": "39797316",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T05:52:16Z",
+        "rm:modified": "2026-11-14T07:26:30Z",
+        "presentation_title": {
+          "ja": "A Matrix Node Graph Data Structure and Its Application for Credibility Assessment with Temporal Transition of Intention",
+          "en": "A Matrix Node Graph Data Structure and Its Application for Credibility Assessment with Temporal Transition of Intention"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ],
+          "en": [
+            {
+              "name": "Ken Honda"
+            },
+            {
+              "name": "Naofumi Yoshida"
+            }
+          ]
+        },
+        "event": {
+          "ja": "The 29th International Conference on Information Modelling and Knowledge Bases (EJC 2019)",
+          "en": "The 29th International Conference on Information Modelling and Knowledge Bases (EJC 2019)"
+        },
+        "publication_date": "2019-06-05",
+        "from_event_date": "2019-06-03",
+        "to_event_date": "2019-06-07",
+        "invited": false,
+        "languages": [
+          "eng"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797517",
+        "@type": "presentations",
+        "rm:id": "39797517",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T06:11:03Z",
+        "rm:modified": "2026-11-14T07:26:26Z",
+        "presentation_title": {
+          "ja": "センサーデータを用いた信憑性評価を対象としたセンサー選択及び学習方式"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ]
+        },
+        "event": {
+          "ja": "第10回データ工学と情報マネジメントに関するフォーラム (第16回日本データベース学会年次大会)"
+        },
+        "publication_date": "2018-03-05",
+        "from_event_date": "2018-03-04",
+        "to_event_date": "2018-03-06",
+        "invited": false,
+        "languages": [
+          "jpn"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797376",
+        "@type": "presentations",
+        "rm:id": "39797376",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T05:55:45Z",
+        "rm:modified": "2026-11-14T07:26:24Z",
+        "presentation_title": {
+          "ja": "A Sensor Selection and Learning Method for Credibility Assessment Using Sensor Data",
+          "en": "A Sensor Selection and Learning Method for Credibility Assessment Using Sensor Data"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ],
+          "en": [
+            {
+              "name": "Ken Honda"
+            },
+            {
+              "name": "Naofumi Yoshida"
+            }
+          ]
+        },
+        "event": {
+          "ja": "The 28th International Conference on Information Modelling and Knowledge Bases (EJC 2018)",
+          "en": "The 28th International Conference on Information Modelling and Knowledge Bases (EJC 2018)"
+        },
+        "publication_date": "2018-06-07",
+        "from_event_date": "2018-06-04",
+        "to_event_date": "2018",
+        "invited": false,
+        "languages": [
+          "eng"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797397",
+        "@type": "presentations",
+        "rm:id": "39797397",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T05:57:17Z",
+        "rm:modified": "2026-11-14T07:26:21Z",
+        "presentation_title": {
+          "ja": "An Evaluation Model of Credibility Calculation System for Natural Disasters",
+          "en": "An Evaluation Model of Credibility Calculation System for Natural Disasters"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ],
+          "en": [
+            {
+              "name": "Ken Honda"
+            },
+            {
+              "name": "Naofumi Yoshida"
+            }
+          ]
+        },
+        "event": {
+          "ja": "The 27th International Conference on Information Modelling and Knowledge Bases (EJC 2017),",
+          "en": "The 27th International Conference on Information Modelling and Knowledge Bases (EJC 2017),"
+        },
+        "publication_date": "2017-06-08",
+        "from_event_date": "2017-06-05",
+        "to_event_date": "2017-06-09",
+        "languages": [
+          "eng"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797411",
+        "@type": "presentations",
+        "rm:id": "39797411",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T05:59:39Z",
+        "rm:modified": "2026-11-14T07:26:18Z",
+        "presentation_title": {
+          "ja": "An Implementation Method of Credibility Calculation System for Emergency such as Natural Disasters",
+          "en": "An Implementation Method of Credibility Calculation System for Emergency such as Natural Disasters"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "石橋直樹"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ],
+          "en": [
+            {
+              "name": "Ken Honda"
+            },
+            {
+              "name": "Naoki Ishibashi"
+            },
+            {
+              "name": "Naofumi Yoshida"
+            }
+          ]
+        },
+        "event": {
+          "ja": "20th East-European Conference on Advances in Databases and Information Systems (ADBIS 2016)",
+          "en": "20th East-European Conference on Advances in Databases and Information Systems (ADBIS 2016)"
+        },
+        "publication_date": "2015-08",
+        "from_event_date": "2016-08-28",
+        "to_event_date": "2016-08-31",
+        "invited": false,
+        "languages": [
+          "eng"
+        ],
+        "presentation_type": "oral_presentation",
+        "rm:is_open_access": false
+      },
+      {
+        "@id": "https://api.researchmap.jp/kenh/presentations/39797531",
+        "@type": "presentations",
+        "rm:id": "39797531",
+        "display": "disclosed",
+        "major_achievement": false,
+        "rm:created": "2022-08-31T06:12:32Z",
+        "rm:modified": "2026-11-14T07:26:16Z",
+        "presentation_title": {
+          "ja": "自然災害などの緊急時における情報の信憑性計測システムの実現方式"
+        },
+        "presenters": {
+          "ja": [
+            {
+              "name": "本多賢"
+            },
+            {
+              "name": "石橋直樹"
+            },
+            {
+              "name": "吉田尚史"
+            }
+          ]
+        },
+        "event": {
+          "ja": "第8回データ工学と情報マネジメントに関するフォーラム (第14回日本データベース学会年次大会)"
+        },
+        "publication_date": "2016-02-29",
+        "from_event_date": "2016-02-29",
+        "to_event_date": "2016-03-02",
         "languages": [
           "jpn"
         ],
