@@ -25,9 +25,8 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 | 更新したいもの | 編集するファイル | 変数 |
 | --- | --- | --- |
 | 名前・学位・職位・専門・研究テーマ | `src/data/profile.ts` | `name` ほか |
-| 論文誌 | `src/data/publications.ts` | `journals` |
-| 国際会議 | `src/data/publications.ts` | `internationalConferences` |
-| 国内学会発表 | `src/data/publications.ts` | `domesticPresentations` |
+| 論文・発表 | **researchmap** で登録（下記） | — |
+| 業績のバッジ（会議略称） | `src/data/badges.ts` | `badges` |
 | 職歴 | `src/data/career.ts` | `experience` |
 | 学会活動 | `src/data/career.ts` | `academicContributions` |
 | 担当授業 | `src/data/lectures.ts` | `lectureGroups` |
@@ -42,21 +41,19 @@ Web フレームワーク [Astro](https://astro.build/) で実装．テンプレ
 - `projects.ts` で `featured: true` にしたものはトップページの「最近のプロジェクト」にも表示される
 - 画像は `public/` に置き，`img: "ファイル名.webp"` で指定
 
-### 例：国内学会発表を追加する
+### 業績（論文・発表）の更新は researchmap で
 
-```ts
-// src/data/publications.ts
-export const domesticPresentations: Publication[] = [
-  {
-    authors: "本多賢, 共著者",
-    title: "発表タイトル",
-    venue: "研究会名, 会場, 日付, 2026.",
-    badge: "略称2026",
-    url: "https://example.com/",
-  },
-  // ...既存の項目
-];
-```
+業績は [researchmap](https://researchmap.jp/kenh) を正として，ビルド時に API から自動取得している．
+
+1. researchmap で論文・発表を登録・修正（**公開** 設定にする）
+2. GitHub の **Actions → Deploy to GitHub Pages → Run workflow** を実行（または main に push）
+3. 数分でサイトに反映
+
+- 取得処理: `scripts/fetch-researchmap.mjs`（`pnpm run build` の最初に実行）
+- 取得結果: `src/data/researchmap/snapshot.json`（取得失敗時はこのスナップショットでビルド）
+- 表示用の変換: `src/data/publications.ts`
+- バッジ（会議略称）: `src/data/badges.ts` に `"業績ID": "DEIM2027"` の形で追加（業績 ID は researchmap の業績ページ URL 末尾の数字）
+- API に繋がらない環境では `pnpm run build:offline` でスナップショットのみからビルドできる
 
 ## Project Structure
 
@@ -65,7 +62,9 @@ export const domesticPresentations: Publication[] = [
 │   ├── data/                  # ← コンテンツはここ
 │   │   ├── types.ts           # データの型定義
 │   │   ├── profile.ts         # 名前・学位・職位・研究テーマ
-│   │   ├── publications.ts    # 業績
+│   │   ├── publications.ts    # 業績（researchmap のデータを変換）
+│   │   ├── badges.ts          # 業績のバッジ
+│   │   ├── researchmap/snapshot.json  # researchmap から取得したデータ
 │   │   ├── career.ts          # 経歴・学会活動
 │   │   ├── lectures.ts        # 担当授業
 │   │   ├── projects.ts        # 研究プロジェクト
@@ -84,6 +83,7 @@ export const domesticPresentations: Publication[] = [
 │   │   └── 404.astro
 │   ├── styles/global.css      # Tailwind / daisyUI の読み込みと設定
 │   └── config.ts              # ページ遷移アニメーションの設定
+├── scripts/fetch-researchmap.mjs  # researchmap API から業績を取得
 ├── public/                    # 画像・favicon
 ├── astro.config.mjs           # site / base（/mypage/）設定，Tailwind の Vite プラグイン
 └── .github/workflows/deploy.yml
