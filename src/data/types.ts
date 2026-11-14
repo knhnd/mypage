@@ -8,18 +8,21 @@
 import type { Localized } from "../i18n";
 export type { Localized };
 
-/** 論文・発表 1件（原題表記のため、日英どちらのページでも同じ内容を表示） */
+/** 論文・発表 1件（researchmap から自動生成。publications.ts を参照） */
 export interface Publication {
-  /** 著者（カンマ区切りの文字列） */
-  authors: string;
-  /** タイトル */
-  title: string;
-  /** 掲載誌・会議名・場所・日付など（カード下段に表示） */
-  venue: string;
-  /** バッジ表示（会議略称や DOI など） */
+  /** researchmap の業績 ID */
+  id: string;
+  /** 著者（カンマ区切り） */
+  authors: Localized;
+  title: Localized;
+  /** 掲載誌・会議名・巻号・ページ・日付など（カード下段に表示） */
+  venue: Localized;
+  /** バッジ表示（badges.ts の指定、無ければ論文は DOI） */
   badge?: string;
   /** リンク先 URL */
-  url?: string;
+  url: string;
+  /** 並び替え用の日付（YYYY-MM-DD など） */
+  date?: string;
 }
 
 /**

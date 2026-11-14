@@ -1,29 +1,37 @@
 ---
-// 業績リストの 1 セクション（見出し + カード一覧）
+// 業績リストの 1 セクション（見出し + カード一覧）。項目が 0 件なら何も表示しない
 import HorizontalCard from "./HorizontalCard.astro";
 import type { Publication } from "../data/types";
+import { t, type Lang } from "../i18n";
 
 interface Props {
   heading: string;
   items: Publication[];
+  lang: Lang;
 }
 
-const { heading, items } = Astro.props;
+const { heading, items, lang } = Astro.props;
 ---
 
-<div>
-  <div class="text-3xl w-full font-bold mb-4">{heading}</div>
-</div>
-<div class="divider my-0"></div>
 {
-  items.map((p) => (
-    <HorizontalCard
-      author={p.authors}
-      title={p.title}
-      desc={p.venue}
-      badge={p.badge}
-      url={p.url ?? "#"}
-    />
-  ))
+  items.length > 0 && (
+    <>
+      <div>
+        <div class="text-3xl w-full font-bold mb-4">{heading}</div>
+      </div>
+      <div class="divider my-0" />
+      {items.map((p) => (
+        <HorizontalCard
+          author={t(p.authors, lang)}
+          title={t(p.title, lang)}
+          desc={t(p.venue, lang)}
+          badge={p.badge}
+          url={p.url}
+        />
+      ))}
+      <br />
+      <br />
+      <br />
+    </>
+  )
 }
-<br /><br /><br />

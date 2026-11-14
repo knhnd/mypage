@@ -1,12 +1,13 @@
 ---
-// データは src/data/publications.ts を編集してください
-// 論文は原題表記のため、日英どちらのページでも同じ内容を表示（見出しのみ翻訳）
+// 業績は researchmap（https://researchmap.jp/kenh）から自動生成（src/data/publications.ts）
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PublicationSection from "../../components/PublicationSection.astro";
 import {
+  conferencePapers,
   domesticPresentations,
-  internationalConferences,
+  internationalPresentations,
   journals,
+  otherPapers,
 } from "../../data/publications";
 import { langPaths, useTranslations, type Lang } from "../../i18n";
 
@@ -14,6 +15,14 @@ export const getStaticPaths = langPaths;
 
 const { lang } = Astro.props as { lang: Lang };
 const tr = useTranslations(lang);
+
+const sections = [
+  { heading: tr("publications.journals"), items: journals },
+  { heading: tr("publications.conferencePapers"), items: conferencePapers },
+  { heading: tr("publications.otherPapers"), items: otherPapers },
+  { heading: tr("publications.internationalPresentations"), items: internationalPresentations },
+  { heading: tr("publications.domesticPresentations"), items: domesticPresentations },
+];
 ---
 
 <BaseLayout lang={lang} title={tr("nav.publications")} sideBarActiveItemID="publications">
@@ -22,10 +31,5 @@ const tr = useTranslations(lang);
   </div>
   <br /><br /><br />
 
-  <PublicationSection heading={tr("publications.journals")} items={journals} />
-  <PublicationSection
-    heading={tr("publications.international")}
-    items={internationalConferences}
-  />
-  <PublicationSection heading={tr("publications.domestic")} items={domesticPresentations} />
+  {sections.map((s) => <PublicationSection heading={s.heading} items={s.items} lang={lang} />)}
 </BaseLayout>

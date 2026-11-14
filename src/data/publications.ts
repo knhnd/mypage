@@ -1,151 +1,184 @@
-// 業績リスト
-// 新しいものを各配列の「先頭」に追加してください（上から順に表示されます）
+// 業績リスト（researchmap から自動生成）
+//
+// ★ 業績の追加・修正は researchmap（https://researchmap.jp/kenh）で行う
+//   - ビルド時に scripts/fetch-researchmap.mjs が最新データを取得し snapshot.json を更新する
+//   - このファイルは researchmap のデータを表示用に変換するだけ。業績を直書きしない
+//   - バッジ（会議略称）は badges.ts で手動指定
 
-import type { Publication } from "./types";
+import snapshot from "./researchmap/snapshot.json";
+import { badges } from "./badges";
+import type { Localized, Publication } from "./types";
 
-/** 論文誌（Journals） */
-export const journals: Publication[] = [
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "A Matrix Node Graph Data Structure and Its Application for Credibility Assessment with Temporal Transition of Intention",
-    venue:
-      "Frontiers in Artificial Intelligence and Applications, Vol.321: Information Modelling and Knowledge Bases XXXI, pp238-252, 2020.",
-    badge: "DOI: 10.3233/FAIA200018",
-    url: "https://ebooks.iospress.nl/volumearticle/53703",
-  },
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "A Sensor Selection and Learning Method for Credibility Assessment Using Sensor Data",
-    venue:
-      "Frontiers in Artificial Intelligence and Applications, Vol.312: Information Modelling and Knowledge Bases XXX, pp400-414, 2019.",
-    badge: "DOI: 10.3233/978-1-61499-933-1-400",
-    url: "https://ebooks.iospress.nl/volumearticle/50926",
-  },
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "An Evaluation Model of Credibility Calculation System for Natural Disasters",
-    venue:
-      "Frontiers in Artificial Intelligence and Applications, Vol.301: Information Modelling and Knowledge Bases XXIX, pp429-440, 2018.",
-    badge: "DOI: 10.3233/978-1-61499-834-1-429",
-    url: "https://ebooks.iospress.nl/volumearticle/48581",
-  },
-];
+const PERMALINK = "kenh";
 
-/** 国際会議（International Conference） */
-export const internationalConferences: Publication[] = [
-  {
-    authors: "Ken Honda, Chiharu Itoga, Akira Hattori",
-    title:
-      "Fostering Attachment to the Community by Discovering of Local Resources using Location-Based System",
-    venue:
-      "The 19th International Conference on Ubiquitous Information Management and Communication, Amari Bangkok Hotel, Thailand, January 03-05, 2025.",
-    badge: "IMCOM2025",
-    url: "https://ieeexplore.ieee.org/document/10857560",
-  },
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "A Matrix Node Graph Data Structure and Its Application for Credibility Assessment with Temporal Transition of Intention",
-    venue:
-      "The 29th International Conference on Information Modelling and Knowledge Bases, Lappeenranta, Finland, June 3-7, 2019.",
-    badge: "EJC2019",
-    url: "https://www.lut.fi/web/en/ejc-conference#:~:text=EJC%202019%20%E2%80%93%20June%203%2D7,and%20users%20of%20information%20systems.",
-  },
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "A Sensor Selection and Learning Method for Credibility Assessment Using Sensor Data",
-    venue:
-      "The 28th International Conference on Information Modelling and Knowledge Bases, Riga,Latvia,June 4-8, 2018.",
-    badge: "EJC2018",
-    url: "http://www.ejc-conference.org/",
-  },
-  {
-    authors: "Ken Honda, Naofumi Yoshida",
-    title:
-      "An Evaluation Model of Credibility Calculation System for Natural Disasters",
-    venue:
-      "The 27th International Conference on Information Modelling and Knowledge Bases, Krabi,Thailand,June 5-9, 2017.",
-    badge: "EJC2017",
-    url: "https://allconferencecfpalerts.blogspot.com/2016/12/the-27th-international-conference-on.html",
-  },
-  {
-    authors: "Ken Honda, Naoki Ishibashi, Naofumi Yoshida",
-    title:
-      "An Implementation Method of Credibility Calculation System for Emergency such as Natural Disasters",
-    venue:
-      "20th East-European Conference on Advances in Databases and Information Systems, workshop DCSA - Data Centered Smart Applications, (Communications in Computer and Information Science 637, New Trends in Databases and Information Systems, ADBIS 2016 Short Papers and Workshops, BigDap, DCSA, DC, Prague, Czech Republic, August 28-31, 2016 Proceedings, Springer), pp.193-201,2016.",
-    badge: "ADBIS2016",
-    url: "https://link.springer.com/book/10.1007/978-3-319-44039-2",
-  },
-];
+// ---- researchmap のデータ型（使う項目のみ） ----
+type RMText = { ja?: string; en?: string };
+type RMPeople = { ja?: { name: string }[]; en?: { name: string }[] };
+interface RMItem {
+  "rm:id": string;
+  "@type": string;
+  display?: string;
+  publication_date?: string;
+  see_also?: { "@id": string; label?: string }[];
+  identifiers?: { doi?: string[] };
+}
+interface RMPaper extends RMItem {
+  paper_title?: RMText;
+  authors?: RMPeople;
+  publication_name?: RMText;
+  volume?: string;
+  number?: string;
+  starting_page?: string;
+  ending_page?: string;
+  published_paper_type?: string;
+}
+interface RMPresentation extends RMItem {
+  presentation_title?: RMText;
+  presenters?: RMPeople;
+  event?: RMText;
+  from_event_date?: string;
+  to_event_date?: string;
+  languages?: string[];
+}
 
-/** 国内学会発表 */
-export const domesticPresentations: Publication[] = [
-  {
-    authors: "長峯幸佑, 柏原悠斗, 久木渚生, 大山拓徒, 吉田太一, 加藤逸, 本多賢",
-    title: "ビル大学における時間制限を考慮したランチ推薦アプリlounasの開発",
-    venue:
-      "ヒューマンインターフェースシンポジウム2024, 京都大学吉田キャンパス, 9月18日-20日, 2024.",
-    badge: "HIS2024",
-    url: "https://jp.his.gr.jp/symposium/hi2024-schedule/",
-  },
-  {
-    authors: "糸賀千晴, 本多賢, 服部哲, 青柳西蔵, 山口浩",
-    title: "テーマパークにおけるUX向上を目的とした情報提供システムの実用性評価",
-    venue:
-      "第16回データ工学と情報マネジメントに関するフォーラム（第22回日本データベース学会年次大会）, アクリエ姫路, 2月28日-3月1日（オンライン）,3月4日-5日（オンサイト）, 2024.",
-    badge: "DEIM2024",
-    url: "https://confit.atlas.jp/guide/event/deim2024/top?lang=ja",
-  },
-  {
-    authors: "糸賀千晴, 本多賢, 服部哲, 青柳西蔵, 山口浩",
-    title: "階層的なエリア分割と関連情報の提供方式の実装",
-    venue:
-      "第119回グループウェアとネットワークサービス研究発表会 (IPSJ SIG Technical Report), 国士館大学世田谷キャンパス(梅ヶ丘校舎), 3月13-14日, 2023.",
-    badge: "GN研究会2023",
-    url: "https://www.ipsj.or.jp/kenkyukai/event/gn119.html",
-  },
-  {
-    authors: "糸賀千晴, 本多賢, 服部哲, 青柳西蔵, 山口浩",
-    title: "実空間の階層化と位置情報に基づく情報提供方式",
-    venue:
-      "第13回社会情報学会中部支部研究会 合同研究会, 椙山女学園大学 (名古屋), Japan, December 24, 2022.",
-    badge: "SSI研究会2022",
-    url: "https://ssicj.main.jp/2022/12/14/%e7%ac%ac13%e5%9b%9e%e3%80%80%e7%a4%be%e4%bc%9a%e6%83%85%e5%a0%b1%e5%ad%a6%e4%bc%9a%e4%b8%ad%e9%83%a8%e6%94%af%e9%83%a8%e7%a0%94%e7%a9%b6%e4%bc%9a%e3%80%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0/",
-  },
-  {
-    authors: "糸賀千晴, 滝田巧平, 本多賢",
-    title: "複数のエッジデバイスを用いた混雑率可視化のためのデータ統合方式",
-    venue:
-      "第21回情報科学技術フォーラム, 慶應義塾大学矢上キャンパス（神奈川）, 9月13日-15日, 2022.",
-    badge: "FIT2022",
-    url: "https://www.ipsj.or.jp/event/fit/fit2022/",
-  },
-  {
-    authors: "糸賀千晴, 滝田巧平, 福盛慎平, 井上和希, 本多賢",
-    title: "大学を対象としたUX向上のためのシステム開発と導入に向けた検討",
-    venue: "2022年社会情報学会 学会大会, 東北大学（宮城）, 9月2日-3日, 2022.",
-    badge: "SSI全国大会2022",
-    url: "https://award-con.com/ssi2022/",
-  },
-  {
-    authors: "本多賢, 吉田尚史",
-    title: "センサデータを用いた信憑性評価を対象としたセンサ選択及び学習方式",
-    venue:
-      "第10回データ工学と情報マネジメントに関するフォーラム（第16回日本データベース学会年次大会）, 福井県あわら市 清風荘, 3月4日-6日, 2018.",
-    badge: "DEIM2018",
-    url: "https://db-event.jpn.org/deim2018/",
-  },
-  {
-    authors: "本多賢, 石橋直樹, 吉田尚史",
-    title: "自然災害などの緊急時における情報の信憑性計測システムの実装",
-    venue:
-      "第8回データ工学と情報マネジメントに関するフォーラム（第14回日本データベース学会年次大会）, ヒルトン福岡シーホーク, 2月29日-3月2日, 2016.",
-    badge: "DEIM2016",
-    url: "https://db-event.jpn.org/deim2016/",
-  },
-];
+// ---- 変換ヘルパー ----
+
+const clean = (s: string | undefined) => s?.replace(/\s+/g, " ").replace(/[\s,、]+$/, "").trim();
+
+/** ja / en の片方しか無い場合はもう片方で補う */
+function localize(v: RMText | undefined): Localized {
+  const ja = clean(v?.ja) || clean(v?.en) || "";
+  const en = clean(v?.en) || clean(v?.ja) || "";
+  return ja === en ? ja : { ja, en };
+}
+
+/** 日本語の氏名は空白を詰める（「本多 賢」→「本多賢」）。英語名はそのまま */
+const normalizeName = (name: string) => (hasJapanese(name) ? name.replace(/\s+/g, "") : name);
+
+function people(v: RMPeople | undefined): Localized {
+  const join = (list?: { name: string }[]) =>
+    list?.map((p) => clean(p.name)).filter((n): n is string => !!n).map(normalizeName).join(", ");
+  return localize({ ja: join(v?.ja), en: join(v?.en) });
+}
+
+/** Localized の各言語に同じ加工をする */
+function mapL(v: Localized, fn: (s: string, lang: "ja" | "en") => string): Localized {
+  if (typeof v === "string") {
+    const ja = fn(v, "ja");
+    const en = fn(v, "en");
+    return ja === en ? ja : { ja, en };
+  }
+  return { ja: fn(v.ja, "ja"), en: fn(v.en, "en") };
+}
+
+const EN_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const parts = (d: string) => d.split("-").map(Number) as [number, number?, number?];
+
+/** 日付（範囲）を言語に合わせて整形: 2026年9月16日〜18日 / Sep 16–18, 2026 */
+function formatDateRange(from: string | undefined, to: string | undefined, lang: "ja" | "en"): string {
+  if (!from) return "";
+  const [y1, m1, d1] = parts(from);
+  const [y2, m2, d2] = to ? parts(to) : [y1, m1, d1];
+  if (lang === "ja") {
+    const one = (y: number, m?: number, d?: number) => `${y}年` + (m ? `${m}月` : "") + (d ? `${d}日` : "");
+    if (!to || to === from) return one(y1, m1, d1);
+    if (y1 === y2 && m1 === m2) return `${one(y1, m1, d1)}〜${d2}日`;
+    if (y1 === y2) return `${one(y1, m1, d1)}〜${m2}月${d2 ?? ""}${d2 ? "日" : ""}`;
+    return `${one(y1, m1, d1)}〜${one(y2, m2, d2)}`;
+  }
+  const one = (y: number, m?: number, d?: number, withYear = true) =>
+    [m ? EN_MONTHS[m - 1] : "", d ?? ""].filter(Boolean).join(" ") + (withYear ? (m ? `, ${y}` : `${y}`) : "");
+  if (!to || to === from) return one(y1, m1, d1);
+  if (y1 === y2 && m1 === m2) return `${EN_MONTHS[m1! - 1]} ${d1}–${d2}, ${y1}`;
+  if (y1 === y2) return `${one(y1, m1, d1, false)} – ${one(y2, m2, d2)}`;
+  return `${one(y1, m1, d1)} – ${one(y2, m2, d2)}`;
+}
+
+/** リンク先: DOI → 関連 URL → researchmap の業績ページ */
+function linkOf(item: RMItem): string {
+  const doi = item.identifiers?.doi?.[0];
+  if (doi) return `https://doi.org/${doi}`;
+  const seeAlso = item.see_also?.[0]?.["@id"];
+  if (seeAlso) return seeAlso;
+  return `https://researchmap.jp/${PERMALINK}/${item["@type"]}/${item["rm:id"]}`;
+}
+
+const isPublic = (item: RMItem) => !item.display || item.display === "disclosed";
+const byDateDesc = (a: Publication, b: Publication) => (b.date ?? "").localeCompare(a.date ?? "");
+const hasJapanese = (s?: string) => !!s && /[぀-ヿ㐀-鿿]/.test(s);
+
+// ---- 論文 ----
+
+function toPaper(p: RMPaper): Publication {
+  const year = p.publication_date?.slice(0, 4);
+  const pages = p.starting_page
+    ? `pp.${p.starting_page}${p.ending_page ? `-${p.ending_page}` : ""}`
+    : undefined;
+  const venue = mapL(localize(p.publication_name), (name) =>
+    [name, p.volume && !name.includes(p.volume) ? `Vol.${p.volume}` : undefined, p.number && `No.${p.number}`, pages, year]
+      .filter(Boolean)
+      .join(", ") + "."
+  );
+  const doi = p.identifiers?.doi?.[0];
+  return {
+    id: p["rm:id"],
+    authors: people(p.authors),
+    title: localize(p.paper_title),
+    venue,
+    badge: badges[p["rm:id"]] ?? (doi ? `DOI: ${doi}` : undefined),
+    url: linkOf(p),
+    date: p.publication_date,
+  };
+}
+
+// ---- 発表 ----
+
+function toPresentation(p: RMPresentation): Publication {
+  const event = localize(p.event);
+  const venue = mapL(event, (name, lang) =>
+    [name, formatDateRange(p.from_event_date ?? p.publication_date, p.to_event_date, lang)].filter(Boolean).join(", ") +
+    "."
+  );
+  return {
+    id: p["rm:id"],
+    authors: people(p.presenters),
+    title: localize(p.presentation_title),
+    venue,
+    badge: badges[p["rm:id"]],
+    url: linkOf(p),
+    date: p.from_event_date ?? p.publication_date,
+  };
+}
+
+const papers = (snapshot.published_papers.items as RMPaper[]).filter(isPublic);
+const presentations = (snapshot.presentations.items as RMPresentation[]).filter(isPublic);
+
+/** 論文誌 */
+export const journals: Publication[] = papers
+  .filter((p) => p.published_paper_type === "scientific_journal")
+  .map(toPaper)
+  .sort(byDateDesc);
+
+/** 国際会議（プロシーディングス） */
+export const conferencePapers: Publication[] = papers
+  .filter((p) => p.published_paper_type === "international_conference_proceedings")
+  .map(toPaper)
+  .sort(byDateDesc);
+
+/** その他の論文（上記以外の種別） */
+export const otherPapers: Publication[] = papers
+  .filter((p) => !["scientific_journal", "international_conference_proceedings"].includes(p.published_paper_type ?? ""))
+  .map(toPaper)
+  .sort(byDateDesc);
+
+/** 国際発表（会議名に日本語を含まないもの） */
+export const internationalPresentations: Publication[] = presentations
+  .filter((p) => !hasJapanese(p.event?.ja ?? p.event?.en))
+  .map(toPresentation)
+  .sort(byDateDesc);
+
+/** 国内発表 */
+export const domesticPresentations: Publication[] = presentations
+  .filter((p) => hasJapanese(p.event?.ja ?? p.event?.en))
+  .map(toPresentation)
+  .sort(byDateDesc);
