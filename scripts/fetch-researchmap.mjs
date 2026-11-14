@@ -13,16 +13,29 @@ const ENDPOINTS = ["published_papers", "presentations"];
 const API = "https://api.researchmap.jp";
 const OUT = fileURLToPath(new URL("../src/data/researchmap/snapshot.json", import.meta.url));
 const PAGE = 100;
-const TIMEOUT_MS = 15_000;
+const TIMEOUT_MS = 30_000;
+const RETRIES = 3; // 失敗時の試行回数（researchmap の応答が遅いことがあるため）
 
 // 保存しない項目（内部 ID など）
 const DROP = new Set(["@reverse", "rm:creator_id", "rm:creator_type", "rm:modifier_id", "rm:modifier_type", "rm:user_id"]);
 const strip = (item) => Object.fromEntries(Object.entries(item).filter(([k]) => !DROP.has(k)));
 
 async function fetchJson(url) {
-  const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS), headers: { Accept: "application/json" } });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${url}`);
-  return res.json();
+  let lastError;
+  for (let attempt = 1; attempt <= RETRIES; attempt++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS), headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${url}`);
+      return await res.json();
+    } catch (err) {
+      lastError = err;
+      if (attempt < RETRIES) {
+        console.warn(`[researchmap] 取得に失敗（${attempt}/${RETRIES}回目）、再試行します: ${err.message}`);
+        await new Promise((r) => setTimeout(r, 3000 * attempt));
+      }
+    }
+  }
+  throw lastError;
 }
 
 async function fetchAll(endpoint) {
